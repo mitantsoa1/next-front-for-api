@@ -22,7 +22,7 @@ interface UseUserRoleReturn {
 
 /**
  * Hook personnalisé pour récupérer et vérifier le rôle de l'utilisateur
- * à partir du cookie session_user
+ * à partir du cookie session
  */
 export function useUserRole(): UseUserRoleReturn {
     const [role, setRole] = useState<UserRole>('user');

@@ -27,7 +27,7 @@ export default async function middleware(request: NextRequest) {
     );
 
     if (isAuthRoute) {
-        const session = request.cookies.get("session_user")?.value;
+        const session = request.cookies.get("session")?.value;
         if (session) {
             try {
                 const parsed = await decrypt(session);

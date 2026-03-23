@@ -18,12 +18,12 @@ import { signup } from "@/lib/auth"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useLocale, useTranslations } from "next-intl"
-import { Loader2, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react"
+import { Loader2, CircleAlert, CircleCheck, Eye, EyeOff } from "lucide-react"
 import Image from "next/image"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group"
-import ReCAPTCHA from "react-google-recaptcha"
 import { motion } from "framer-motion"
 import { useAuthTransition } from "./auth-layout"
+import ReCAPTCHA from "react-google-recaptcha"
 
 export function SignupForm({
   className,
@@ -178,7 +178,7 @@ export function SignupForm({
               className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-300 px-4 py-1 rounded-xl"
             >
               <div className="flex items-center gap-2">
-                <AlertCircle className="h-4 w-4" />
+                <CircleAlert className="h-4 w-4" />
                 <p className="text-sm font-medium">{apiError}</p>
               </div>
             </motion.div>
@@ -191,7 +191,7 @@ export function SignupForm({
               className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl"
             >
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4" />
+                <CircleCheck className="h-4 w-4" />
                 <p className="text-sm font-medium">{success}</p>
               </div>
             </motion.div>
@@ -208,7 +208,7 @@ export function SignupForm({
             />
             {errors.name && (
               <p className="text-red-500 text-sm mt-1 flex items-center gap-1 font-medium">
-                <AlertCircle className="h-3 w-3" />
+                <CircleAlert className="h-3 w-3" />
                 {errors.name.message}
               </p>
             )}
@@ -225,7 +225,7 @@ export function SignupForm({
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1 flex items-center gap-1 font-medium">
-                <AlertCircle className="h-3 w-3" />
+                <CircleAlert className="h-3 w-3" />
                 {errors.email.message}
               </p>
             )}
@@ -253,7 +253,7 @@ export function SignupForm({
               </InputGroup>
               {errors.password && (
                 <p className="text-red-500 text-sm mt-1 flex items-center gap-1 font-medium">
-                  <AlertCircle className="h-3 w-3" />
+                  <CircleAlert className="h-3 w-3" />
                   {errors.password.message}
                 </p>
               )}
@@ -282,7 +282,7 @@ export function SignupForm({
               </InputGroup>
               {errors.confirmPassword && (
                 <p className="text-red-500 text-sm mt-1 flex items-center gap-1 font-medium">
-                  <AlertCircle className="h-3 w-3" />
+                  <CircleAlert className="h-3 w-3" />
                   {errors.confirmPassword.message}
                 </p>
               )}

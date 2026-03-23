@@ -21,7 +21,7 @@ interface UseUserReturn {
 
 /**
  * Hook personnalisé pour récupérer l'utilisateur connecté
- * à partir du cookie session_user
+ * à partir du cookie session
  */
 export function useUserEmail(): UseUserReturn {
     const [user, setUser] = useState<User | null>(null);

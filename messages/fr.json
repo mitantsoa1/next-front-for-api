@@ -1,0 +1,952 @@
+{
+    "route": {
+        "home": "accueil",
+        "packs": "packs",
+        "about": "a-propos",
+        "contact": "contact",
+        "ecosystem": "ecosysteme",
+        "login": "login",
+        "signup": "signup"
+    },
+    "header": {
+        "home": "Accueil",
+        "packs": "Packs",
+        "about": "A propos",
+        "contact": "Contact",
+        "ecosystem": "Ecosystème",
+        "login": "Se Connecter",
+        "signup": "S'inscrire",
+        "buttonAuth": {
+            "profile": "Profil",
+            "logout": "Se deconnecter",
+            "login": "Se connecter",
+            "signup": "S'inscrire",
+            "myAccount": "Mon compte"
+        }
+    },
+    "footer": {
+        "banner_text": "Cela vous aidera à améliorer votre écriture et à exprimer vos idées plus clairement.",
+        "banner_button": "COMMENCER MAINTENANT",
+        "description": "Agence numérique spécialisée dans le développement web, les applications, l'IA et l'automatisation.",
+        "company": "ENTREPRISE",
+        "help": "AIDE",
+        "customer_support": "Support Client",
+        "delivery_details": "Détails de Livraison",
+        "terms_conditions": "Conditions d'utilisation",
+        "privacy_policy": "Confidentialité",
+        "subscribe_newsletter": "ABONNEZ-VOUS",
+        "enter_email": "Entrez votre email",
+        "subscribe_button": "S'ABONNER",
+        "subscribe_success": "Merci de vous abonner",
+        "subscribe_error": "Une erreur est survenue lors de l'abonnement.",
+        "invalid_email": "Veuillez saisir une adresse email valide.",
+        "all_rights_reserved": "Blue Valoris Tech. Tous droits réservés.",
+        "terms_of_service": "Conditions Générales d'Utilisation",
+        "terms_of_sales": "Conditions Générales de Vente"
+    },
+    "profile": {
+        "title": "Profil utilisateur",
+        "fullName": "Nom complet",
+        "emailAddress": "Adresse email",
+        "logout": "Se déconnecter",
+        "loading": "Chargement...",
+        "updateSuccess": "Profil mis à jour avec succès !",
+        "updateError": "Échec de la mise à jour du profil. Veuillez réessayer.",
+        "updateErrorNetwork": "Erreur réseau. Veuillez vérifier votre connexion.",
+        "phoneNumber": "Numéro de téléphone",
+        "address": "Adresse",
+        "company": "Entreprise",
+        "yourFullName": "Votre nom complet",
+        "yourEmail": "votre@email.com",
+        "yourPhoneNumber": "Votre numéro de téléphone",
+        "yourAddress": "Votre adresse",
+        "yourCompany": "Nom de votre entreprise",
+        "saving": "Enregistrement...",
+        "saveChanges": "Enregistrer les modifications",
+        "personalInfoDesc": "Gérez vos informations personnelles et coordonnées.",
+        "logoutSectionTitle": "Déconnexion",
+        "securityDesc": "Protégez votre compte avec un mot de passe fort.",
+        "editProfile": "Modifier le profil",
+        "cancel": "Annuler",
+        "security": "Sécurité du compte",
+        "changePassword": "Changer le mot de passe",
+        "currentPassword": "Mot de passe actuel",
+        "newPassword": "Nouveau mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "passwordSuccess": "Mot de passe modifié avec succès !",
+        "passwordError": "Erreur lors de la modification du mot de passe.",
+        "passwordMismatch": "Les nouveaux mots de passe ne correspondent pas."
+    },
+    "users": {
+        "title": "Gestion des Utilisateurs",
+        "description": "Gérez les comptes utilisateurs, les rôles et les accès du système.",
+        "addUser": "Ajouter un utilisateur",
+        "editUser": "Modifier l'utilisateur",
+        "deleteUser": "Supprimer l'utilisateur",
+        "name": "Nom",
+        "email": "Email",
+        "role": "Rôle",
+        "actions": "Actions",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+        "deleteSuccess": "Utilisateur supprimé avec succès",
+        "createSuccess": "Utilisateur créé avec succès",
+        "updateSuccess": "Utilisateur mis à jour avec succès",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "phone": "Téléphone",
+        "address": "Adresse",
+        "company": "Entreprise",
+        "loading": "Chargement des utilisateurs...",
+        "noUsers": "Aucun utilisateur trouvé.",
+        "editUserDesc": "Modifiez les détails de l'utilisateur ci-dessous.",
+        "addUserDesc": "Saisissez les détails du nouveau compte utilisateur.",
+        "selectRole": "Sélectionner un rôle",
+        "roleUser": "Utilisateur",
+        "roleAdmin": "Administrateur",
+        "roleSuperAdmin": "Super Administrateur",
+        "errorOccurred": "Une erreur est survenue",
+        "cancel": "Annuler",
+        "saveChanges": "Sauvegarder",
+        "searchPlaceholder": "Rechercher...",
+        "phoneNumber": "Numéro Tél."
+    },
+    "datatable": {
+        "noResultYet": "Aucun résultat trouvé.",
+        "of": "sur",
+        "previous": "Précédent",
+        "next": "Suivant",
+        "rowsPerPage": "Lignes par page",
+        "all": "Tous",
+        "searchPlaceholder": "Rechercher..."
+    },
+    "validation": {
+        "required": "Ce champ est obligatoire",
+        "invalidEmail": "Email invalide",
+        "passwordMin": "Le mot de passe doit contenir au moins 6 caractères",
+        "passwordMismatch": "Les mots de passe ne correspondent pas",
+        "phoneInvalid": "Numéro de téléphone invalide"
+    },
+    "checkout": {
+        "success": {
+            "title": "Paiement réussi !",
+            "thank_you": "Merci pour votre achat.",
+            "description": "Votre commande a été traitée avec succès. Vous pouvez maintenant accéder aux fonctionnalités de votre pack depuis votre tableau de bord.",
+            "order_number": "Numéro de commande :",
+            "go_to_dashboard": "Aller au tableau de bord",
+            "back_to_home": "Retour à l'accueil"
+        },
+        "cancel": {
+            "title": "Paiement annulé",
+            "description": "Le processus de paiement a été annulé. Aucun frais n'a été prélevé.",
+            "retry": "Réessayer",
+            "back_to_packs": "Retour aux Packs"
+        }
+    },
+    "payment_status_badges": {
+        "succeeded": "Payé",
+        "pending": "En attente",
+        "failed": "Échec",
+        "processing": "Traitement"
+    },
+    "payments": {
+        "title": "Gestion des paiements",
+        "description": "Visualiser et gérer toutes les transactions et paiements.",
+        "amount": "Montant",
+        "currency": "Devise",
+        "status": "Statut",
+        "payment_method": "Méthode de Paiement",
+        "order": "Commande",
+        "pack": "Pack",
+        "date": "Date",
+        "stripe_id": "ID Stripe",
+        "user": "Utilisateur",
+        "actions": "Actions",
+        "viewDetails": "View Details",
+        "loading": "Chargement des paiements...",
+        "detailsTitle": "Détails du Paiement",
+        "detailsDesc": "Informations complètes sur la transaction.",
+        "customerInfo": "Informations Client",
+        "paymentInfo": "Informations de Paiement",
+        "orderInfo": "Informations de Commande",
+        "orderNumber": "Numéro de Commande",
+        "transactionId": "ID de Transaction (Stripe)",
+        "method": "Méthode",
+        "close": "Fermer"
+    },
+    "management_contacts": {
+        "title": "Messages de contact",
+        "description": "Lire et gérer les messages reçus via le formulaire de contact.",
+        "name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone",
+        "message": "Message",
+        "date": "Date",
+        "actions": "Actions",
+        "loading": "Chargement des messages...",
+        "detailsTitle": "Détails du Message",
+        "detailsDesc": "Contenu complet du message de contact.",
+        "senderInfo": "Informations de l'expéditeur",
+        "messageInfo": "Contenu du Message",
+        "close": "Fermer"
+    },
+    "packs_page_details": {
+        "title": "Choisissez le plan parfait pour vous",
+        "description": "Faites évoluer votre écosystème numérique sans effort avec un flux de travail flexible basé sur des Points. Pas de devis, pas de délais, juste une performance continue livrée mois après mois.",
+        "how_to_choose": "Comment choisir votre plan",
+        "how_to_choose_desc": "La sélection du bon plan est simple : chaque abonnement vous donne un pool mensuel de Points qui alimente toute votre évolution numérique. Chaque demande, qu'il s'agisse d'une nouvelle page, d'une automatisation, d'une intégration d'IA ou d'une amélioration de la conception, utilise des Points, vous donnant un contrôle total et une évolutivité prévisible. Si vos besoins augmentent, il vous suffit de mettre à niveau ou d'ajouter des Points. Pas de devis, pas de négociation, pas de ralentissements, juste un flux de travail simplifié et automatisé qui évolue avec votre entreprise chaque mois.",
+        "billing": {
+            "monthly": "Mensuel",
+            "annually": "Annuel"
+        },
+        "start": {
+            "title": "Pack",
+            "subtitle": "START",
+            "tagline": "Une présence web simple et efficace.",
+            "bestFor": "Indépendants, freelances, petites structures, premiers pas en ligne",
+            "features": [
+                "Site vitrine (1-3 pages)",
+                "Design moderne & épuré",
+                "Hébergement & certificat SSL inclus",
+                "Maintenance technique de base",
+                "Optimisation SEO initiale",
+                "1 formulaire de contact par e-mail",
+                "SLA : support 72h",
+                "5 points / mois"
+            ],
+            "creditExamples": {
+                "title": "Exemples d'utilisation des points :",
+                "items": [
+                    "Correction de texte/image : 1 point",
+                    "Modification de couleur/style : 2 points",
+                    "Ajout d'un petit bouton ou lien : 1 point"
+                ]
+            },
+            "options": {
+                "title": "Options :",
+                "items": [
+                    "Page supplémentaire : +3 points de configuration",
+                    "E-mail personnalisé : +29€/mois",
+                    "Aide rédactionnelle : +49€/mois"
+                ]
+            },
+            "commitment": "3 mois minimum",
+            "buttonText": "Choisir le Plan"
+        },
+        "launch": {
+            "title": "Pack",
+            "subtitle": "LAUNCH",
+            "tagline": "Votre présence numérique clé en main.",
+            "bestFor": "Indépendants, petites entreprises, consultants, startups en phase de démarrage",
+            "features": [
+                "Site web professionnel jusqu'à 10 pages",
+                "Modèle premium & design réactif",
+                "Stack Next.js-first ou WordPress",
+                "Hébergement & SSL inclus",
+                "SEO de base + Analytics",
+                "Chatbot IA de base",
+                "1 formulaire vers e-mail",
+                "Maintenance & sécurité continues",
+                "SLA : support 48h",
+                "10 points / mois",
+                "Accès au tableau de bord client"
+            ],
+            "creditExamples": {
+                "title": "Exemples d'utilisation des points :",
+                "items": [
+                    "Modifier texte/image : 1 point",
+                    "Ajouter une section simple : 3 points",
+                    "Ajouter une page : 6 points"
+                ]
+            },
+            "options": {
+                "title": "Options :",
+                "items": [
+                    "E-commerce léger : +6 points de configuration / +99€/mois",
+                    "Multi-langue : +3 points / +49€/mois",
+                    "Blog + contenu IA : +59€/mois",
+                    "Formulaire avancé : +29€/mois"
+                ]
+            },
+            "commitment": "12 mois minimum",
+            "buttonText": "Choisir le Plan"
+        },
+        "growth": {
+            "title": "Pack",
+            "subtitle": "GROWTH",
+            "tagline": "Votre site web devient un moteur d'affaires automatisé.",
+            "bestFor": "PME, entreprises B2B, organisations en croissance",
+            "features": [
+                "Tout ce qui est dans Launch",
+                "CRM intégré (HubSpot / Notion / Blue Valoris)",
+                "Automatisations : Formulaires vers CRM vers Slack/Email",
+                "Portail client simple",
+                "Chatbot IA intelligent (pré-qualification + synchronisation CRM)",
+                "Rapports mensuels automatisés",
+                "Surveillance de base de la disponibilité",
+                "Support prioritaire",
+                "SLA : 24h",
+                "25 Points / mois",
+                "Réunion de stratégie trimestrielle"
+            ],
+            "creditExamples": {
+                "title": "Exemples d'utilisation des Points :",
+                "items": [
+                    "Automatisation de base : 5 Points",
+                    "Page + design : 6 Points",
+                    "Intégration API simple : 8 Points",
+                    "Chatbot IA (connecté à la base de connaissances) : 10 Points"
+                ]
+            },
+            "options": {
+                "title": "Options :",
+                "items": [
+                    "Marketing par e-mail automatisé : +59€/mois",
+                    "API externe (ERP / Airtable...) : +99€/mois",
+                    "Chatbot IA avancé : +99€/mois",
+                    "PWA de base : sur demande"
+                ]
+            },
+            "commitment": "12-24 mois",
+            "buttonText": "Choisir le Plan"
+        },
+        "scale": {
+            "title": "Pack",
+            "subtitle": "SCALE +",
+            "tagline": "Votre écosystème numérique devient une machine de croissance intelligente.",
+            "bestFor": "Scale-ups, cabinets de conseil, entreprises technologiques structurées",
+            "features": [
+                "Tout ce qui est dans Growth",
+                "Automatisations IA avancées (notation des leads + analyse)",
+                "Génération de contenu IA (texte, résumés)",
+                "Tableau de bord d'analyse IA",
+                "Surveillance en temps réel (Grafana)",
+                "CRM amélioré avec actions IA automatisées",
+                "Support premium",
+                "SLA : 12h",
+                "50 Points / mois",
+                "Atelier d'évolution mensuel"
+            ],
+            "creditExamples": {
+                "title": "Exemples d'utilisation des Points :",
+                "items": [
+                    "Tableau de bord IA simple : 10 Points",
+                    "Tableau de bord IA avancé : 20 Points",
+                    "Automatisation de la notation des leads : 12 Points",
+                    "Nouveau mini-module métier : 18 Points"
+                ]
+            },
+            "options": {
+                "title": "Options :",
+                "items": [
+                    "Application mobile complète : +250€/mois",
+                    "IA privée personnalisée (fine-tuned) : +300€/mois",
+                    "Intégration multi-succursales : +400€/mois"
+                ]
+            },
+            "commitment": "12-24 mois",
+            "buttonText": "Choisir le Plan"
+        },
+        "support": {
+            "title": "Pack",
+            "subtitle": "SUPPORT +",
+            "tagline": "Maintenance & support — sans évolution avancée.",
+            "bestFor": "Clients existants ou externes ne nécessitant que stabilité et sécurité",
+            "features": [
+                "Maintenance & mises à jour",
+                "Surveillance de la disponibilité",
+                "Assistance par ticket",
+                "Rapport mensuel automatisé",
+                "10 Points / mois",
+                "SLA : 12–48h selon la tâche"
+            ],
+            "commitment": "Pas d'engagement à long terme (préavis de 30 jours)",
+            "buttonText": "Choisir le Plan"
+        }
+    },
+    "checkout_page": {
+        "back_to_packs": "Retour aux packs",
+        "pack_not_found": "Pack non trouvé",
+        "loading_error": "Erreur lors du chargement du pack",
+        "login_required": "Veuillez vous connecter pour continuer",
+        "payment_error": "Une erreur est survenue",
+        "included_title": "Ce qui est inclus",
+        "commitment": "Engagement",
+        "payment_type_title": "Type de paiement",
+        "payment_type_label": "Choisissez ce que vous souhaitez payer",
+        "setup_fee": "Frais d'installation",
+        "monthly_subscription": "Abonnement mensuel",
+        "per_month": "/mois",
+        "order_summary": "Résumé de la commande",
+        "pack": "Pack",
+        "total": "Total",
+        "proceed_to_payment": "Procéder au paiement",
+        "processing": "Traitement...",
+        "secure_payment": "Paiement sécurisé par Stripe",
+        "terms_description": "En procédant au paiement, vous acceptez nos",
+        "cgv": "Conditions Générales de Vente",
+        "subscription_options": "Options d'abonnement",
+        "monthly": "Mensuel",
+        "yearly": "Annuel",
+        "save_badge": "Économisez",
+        "yearly_subscription": "Abonnement annuel",
+        "per_year": "/an",
+        "activation_title": "Activation de l'abonnement",
+        "activation_description": "Souhaitez-vous démarrer votre abonnement immédiatement après le paiement, ou préférez-vous réserver ce pack et l'activer plus tard ?",
+        "start_now_title": "Démarrer maintenant",
+        "start_now_description": "L'abonnement sera actif dès la validation du paiement.",
+        "reserve_later_title": "Réserver pour plus tard",
+        "reserve_later_description": "Payer le 1er mois maintenant comme réservation, et activer manuellement plus tard.",
+        "cancel": "Annuler",
+        "immediate_payment_reservation": "Paiement immédiat pour réserver votre pack. Vous pourrez l'activer plus tard pour démarrer l'abonnement.",
+        "first_payment_setup_sub": "Premier paiement : frais de setup + première période d'abonnement",
+        "pay_combined": "Payer {amount}€ (Setup + Abonnement)"
+    },
+    "sidebar": {
+        "menu": "Menu",
+        "admin": "Admin",
+        "dashboard": "Tableau de bord",
+        "profile": "Profil",
+        "plan": "Mon Plan",
+        "users": "Utilisateurs",
+        "packages": "Offres",
+        "payments": "Paiements",
+        "contact": "Contacts",
+        "analytics": "Statistiques",
+        "summary": "Récapitulatif",
+        "history": "Historique",
+        "legal": "Légal",
+        "supports": "Support",
+        "backups": "Sauvegardes",
+        "search_placeholder": "Rechercher...",
+        "all_users": "Tous les utilisateurs",
+        "all_statuses": "Tous les statuts",
+        "all_payments": "Tous les paiements"
+    },
+    "project_status": {
+        "pending": "En attente",
+        "active": "Actif",
+        "completed": "Terminé",
+        "cancelled": "Annulé",
+        "upgraded": "Mis à niveau"
+    },
+    "chatbot": {
+        "title": "Assistant Blue Valoris",
+        "online": "En ligne",
+        "newChat": "Nouvelle conversation",
+        "clearChat": "Effacer la conversation",
+        "placeholder": "Tapez votre message...",
+        "initialMessage": "Bonjour! 👋 Je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui?",
+        "clearConfirm": "Voulez-vous vraiment effacer l'historique de cette conversation ?",
+        "error": "Désolé, une erreur s'est produite. Veuillez réessayer plus tard.",
+        "noResponse": "Désolé, je n'ai pas pu générer une réponse."
+    },
+    "notifications": {
+        "title": "Notifications",
+        "subtitle": "Gérez vos notifications et restez informé des activités sur la plateforme.",
+        "markAllAsRead": "Tout marquer comme lu",
+        "loading": "Chargement des notifications...",
+        "emptyTitle": "Pas de notifications",
+        "emptyDescription": "Vous n'avez aucune notification pour le moment.",
+        "new": "Nouveau",
+        "viewDetails": "Voir les détails",
+        "viewAll": "Voir toutes les notifications",
+        "markAsRead": "Marquer comme lu",
+        "delete": "Supprimer",
+        "pagination": "Page {page} sur {total}",
+        "close": "Fermer",
+        "defaultTitle": "Notification",
+        "defaultMessage": "Vous avez reçu une nouvelle notification.",
+        "toasts": {
+            "markedAsRead": "Notification marquée comme lue",
+            "allMarkedAsRead": "Toutes les notifications marquées comme lues",
+            "deleted": "Notification supprimée"
+        }
+    },
+    "login": {
+        "title": "Connexion",
+        "email_label": "Email",
+        "email_placeholder": "m@exemple.com",
+        "password_label": "Mot de passe",
+        "forgot_password": "Mot de passe oublié ?",
+        "sign_in_button": "Se connecter",
+        "signing_in": "Connexion en cours...",
+        "or_continue_with": "Ou continuer avec",
+        "no_account": "Vous n'avez pas de compte ?",
+        "sign_up_link": "S'inscrire",
+        "login_success": "Connexion réussie ! Redirection...",
+        "login_failed": "Échec de la connexion",
+        "invalid_email": "Adresse email invalide",
+        "password_required": "Le mot de passe est obligatoire",
+        "description": "Connectez-vous à votre compte pour continuer."
+    },
+    "signup": {
+        "title": "Créer un compte",
+        "description": "Saisissez vos informations pour commencer",
+        "name_label": "Nom",
+        "name_placeholder": "Jean Dupont",
+        "email_label": "Email",
+        "email_placeholder": "m@exemple.com",
+        "password_label": "Mot de passe",
+        "confirm_password_label": "Confirmer le mot de passe",
+        "password_hint": "Doit contenir au moins 8 caractères.",
+        "create_account_button": "Créer un compte",
+        "creating_account": "Création du compte...",
+        "or_continue_with": "Ou continuer avec",
+        "already_account": "Vous avez déjà un compte ?",
+        "sign_in_link": "Se connecter",
+        "account_created": "Compte créé avec succès ! Redirection...",
+        "registration_failed": "Échec de l'inscription",
+        "name_min_length": "Le nom doit contenir au moins 3 caractères",
+        "invalid_email": "Adresse email invalide",
+        "password_min_length": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwords_dont_match": "Les mots de passe ne correspondent pas",
+        "terms_notice": "En cliquant sur continuer, vous acceptez nos",
+        "terms_of_service": "Conditions Générales d'Utilisation",
+        "privacy_policy": "Politique de Confidentialité",
+        "and": "et"
+    },
+    "verify_email": {
+        "title": "Vérification de votre compte",
+        "verifying": "Vérification en cours...",
+        "verifying_desc": "Veuillez patienter pendant que nous finalisons votre inscription.",
+        "success_title": "Compte vérifié !",
+        "success_desc": "Votre compte a été vérifié avec succès. Vous allez être redirigé vers votre tableau de bord...",
+        "error_title": "Oups !",
+        "error_token_missing": "Token de vérification manquant.",
+        "error_invalid": "Le lien de vérification est invalide ou a expiré.",
+        "back_to_signup": "Retourner à l'inscription",
+        "redirecting": "Redirection..."
+    },
+    "packs_management": {
+        "title": "Gestion des Packs",
+        "description": "Gérez les offres de services, les prix, les fonctionnalités et les options.",
+        "syncStripe": "Synchroniser Stripe",
+        "addPack": "Ajouter un Pack",
+        "editPack": "Modifier le Pack",
+        "deletePack": "Supprimer le Pack",
+        "name": "Nom",
+        "slug": "Slug",
+        "setupPrice": "Prix d'installation",
+        "monthlyPrice": "Prix mensuel",
+        "billingPeriod": "Période de facturation",
+        "commitment": "Engagement (mois)",
+        "isActive": "Actif",
+        "isFeatured": "Mis en avant",
+        "actions": "Actions",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer ce pack ?",
+        "deleteSuccess": "Pack supprimé avec succès",
+        "createSuccess": "Pack créé avec succès",
+        "updateSuccess": "Pack mis à jour avec succès",
+        "basicInfo": "Informations de base",
+        "pricingInfo": "Tarification & Engagement",
+        "technicalInfo": "Fiche Technique",
+        "marketingInfo": "Marketing",
+        "features": "Fonctionnalités",
+        "featuresCount": "fonctionnalités",
+        "options": "Options",
+        "manageFeatures": "Gérer les fonctionnalités",
+        "manageOptions": "Gérer les options",
+        "saveChanges": "Sauvegarder les modifications",
+        "cancel": "Annuler",
+        "errorOccurred": "Une erreur est survenue",
+        "noFeatures": "Aucune fonctionnalité",
+        "moreFeatures": "de plus"
+    },
+    "dashboard": {
+        "packs": {
+            "members": "membres",
+            "supportRequests": "Demandes de support",
+            "step": "Etape",
+            "documents": "Documents",
+            "team": "Equipe",
+            "support": "Support"
+        }
+    },
+    "legal_notice": {
+        "title": "Mentions Légales",
+        "description": "Informations légales et conditions d'utilisation de Blue Valoris Tech.",
+        "sections": {
+            "editor": {
+                "title": "Éditeur du Site",
+                "content": "Le site www.bluevaloristech.com est édité par Blue Valoris Tech, une société enregistrée à Dubaï, Émirats Arabes Unis.\nAdresse : N°60773, zone IFZA – Dubai Silicon Oasis, Dubaï, Émirats Arabes Unis.\nEmail : info@bluevaloristech.com"
+            },
+            "hosting": {
+                "title": "Hébergement",
+                "content": "Le site est hébergé par Hostinger à USA."
+            },
+            "intellectual_property": {
+                "title": "Propriété Intellectuelle",
+                "content": "Tous les contenus de ce site (textes, images, logos, ...) sont la propriété exclusive de Blue Valoris Tech ou de ses partenaires."
+            },
+            "personal_data": {
+                "title": "Données Personnelles",
+                "content": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles."
+            },
+            "responsibility": {
+                "title": "Responsabilité",
+                "content": "Blue Valoris Tech met tout en œuvre pour assurer l'exactitude des informations diffusées sur ce site mais ne saurait être tenue pour responsable des erreurs ou omissions."
+            }
+        }
+    },
+    "privacy": {
+        "title": "Politique de Confidentialité",
+        "description": "Informations sur la collecte, l'utilisation et la protection de vos données personnelles.",
+        "sections": {
+            "data_controller": {
+                "title": "Responsable du Traitement",
+                "content": "Blue Valoris Tech, enregistrée à Dubaï, Émirats Arabes Unis, est le responsable du traitement des données personnelles collectées sur ce site.\nAdresse : N°60773, zone IFZA – Dubai Silicon Oasis, Dubaï, Émirats Arabes Unis.\nEmail : info@bluevaloristech.com"
+            },
+            "data_collected": {
+                "title": "Données Collectées",
+                "content": "Nous collectons les données personnelles suivantes :\n- Informations de contact (nom, email, numéro de téléphone, entreprise)\n- Données techniques (adresse IP, type de navigateur, informations sur l'appareil)\n- Données de navigation (pages visitées, temps passé, interactions)\n- Données que vous fournissez via les formulaires ou communications"
+            },
+            "purpose": {
+                "title": "Finalité du Traitement",
+                "content": "Vos données personnelles sont traitées pour les finalités suivantes :\n- Répondre à vos demandes et questions\n- Gérer nos relations commerciales\n- Améliorer nos services et notre site web\n- Envoyer des newsletters et communications commerciales (avec votre consentement)\n- Respecter nos obligations légales"
+            },
+            "legal_basis": {
+                "title": "Base Légale",
+                "content": "Le traitement de vos données personnelles repose sur :\n- Votre consentement pour les communications marketing\n- La nécessité contractuelle pour la fourniture de services\n- Nos intérêts légitimes pour l'analytique et l'amélioration des services\n- Les obligations légales pour la conformité aux lois applicables"
+            },
+            "recipients": {
+                "title": "Destinataires des Données",
+                "content": "Vos données personnelles peuvent être partagées avec :\n- Nos fournisseurs d'hébergement (Hostinger)\n- Les fournisseurs de services d'analytique\n- Les fournisseurs de services email\n- Les processeurs de paiement (le cas échéant)\nNous nous assurons que tous les tiers respectent les exigences du RGPD."
+            },
+            "retention": {
+                "title": "Conservation des Données",
+                "content": "Nous conservons vos données personnelles pour les durées suivantes :\n- Demandes de contact : 3 ans à partir du dernier contact\n- Données clients : durée du contrat + 5 ans pour les obligations légales\n- Abonnements newsletter : jusqu'à votre désinscription\n- Données analytiques : 26 mois maximum"
+            },
+            "rights": {
+                "title": "Vos Droits",
+                "content": "Conformément au RGPD, vous disposez des droits suivants :\n- Droit d'accès à vos données personnelles\n- Droit de rectification des données inexactes\n- Droit à l'effacement (\"droit à l'oubli\")\n- Droit à la limitation du traitement\n- Droit à la portabilité des données\n- Droit d'opposition au traitement\n- Droit de retirer votre consentement\nPour exercer ces droits, contactez-nous à : info@bluevaloristech.com"
+            },
+            "cookies": {
+                "title": "Cookies",
+                "content": "Ce site utilise des cookies pour :\n- Assurer le bon fonctionnement du site\n- Analyser le trafic et le comportement des utilisateurs\n- Mémoriser vos préférences\nVous pouvez configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités peuvent ne pas fonctionner correctement."
+            },
+            "security": {
+                "title": "Sécurité des Données",
+                "content": "Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre l'accès non autorisé, la perte, la destruction ou l'altération. Cela comprend :\n- Chiffrement SSL/TLS pour la transmission des données\n- Infrastructure d'hébergement sécurisée\n- Mises à jour de sécurité régulières\n- Contrôles d'accès et authentification"
+            },
+            "contact": {
+                "title": "Contact & Réclamations",
+                "content": "Pour toute question concernant cette politique de confidentialité ou pour exercer vos droits :\nEmail : info@bluevaloristech.com\n\nVous avez également le droit de déposer une plainte auprès de votre autorité locale de protection des données."
+            }
+        }
+    },
+    "customer_support_page": {
+        "title": "Support Client",
+        "description": "Obtenez l'aide dont vous avez besoin pour tirer le meilleur parti des services Blue Valoris Tech.",
+        "sections": {
+            "how_to_reach": {
+                "title": "Comment Nous Contacter",
+                "content": "Notre équipe de support est à votre disposition pour répondre à vos questions ou problèmes :\n\nEmail : info@bluevaloristech.com\nTéléphone : +44 845 287 2984 \nChat en direct : Disponible sur notre tableau de bord (pour les clients actifs)\n\nPour les problèmes techniques urgents, utilisez l'email de support prioritaire : info@bluevaloristech.com"
+            },
+            "ticketing": {
+                "title": "Système de Tickets de Support",
+                "content": "Toutes les demandes de support sont gérées via notre système de tickets :\n\n1. Soumettez votre demande par email ou tableau de bord\n2. Recevez un numéro de ticket automatique\n3. Suivez l'état de votre ticket en temps réel\n4. Recevez les mises à jour et réponses directement\n\nVous pouvez accéder à l'historique de vos tickets et soumettre de nouvelles demandes via votre tableau de bord client."
+            },
+            "sla": {
+                "title": "Accord de Niveau de Service (SLA)",
+                "content": "Nos temps de réponse varient selon le pack :\n\n• Pack START : délai de réponse de 72h\n• Pack LAUNCH : délai de réponse de 48h\n• Pack GROWTH : délai de réponse de 24h\n• Pack SCALE+ : délai de réponse de 12h\n• Pack SUPPORT+ : 12-48h selon le problème\n\nLes problèmes urgents sont prioritaires et peuvent recevoir des réponses plus rapides. Nos garanties SLA s'appliquent pendant les heures ouvrables."
+            },
+            "hours": {
+                "title": "Horaires de Support",
+                "content": "Horaires de Support Standard :\nLundi - Vendredi : 9h00 - 18h00 (GST - Heure de Dubaï)\nSamedi - Dimanche : Support limité pour les problèmes urgents uniquement\n\nJours fériés : Support d'urgence uniquement\n\nLes clients avec support premium (SCALE+ et supérieur) peuvent avoir accès à un support étendu ou 24/7 selon leur contrat."
+            }
+        }
+    },
+    "delivery_details_page": {
+        "title": "Détails de Livraison",
+        "description": "Comprenez comment nous livrons et faisons évoluer vos services numériques mois après mois.",
+        "sections": {
+            "initial_setup": {
+                "title": "Configuration Initiale & Lancement",
+                "content": "Délais pour votre première livraison :\n\n• Pack START : 5-7 jours ouvrables\n• Pack LAUNCH : 10-15 jours ouvrables\n• Pack GROWTH : 15-20 jours ouvrables\n• Pack SCALE+ : 20-30 jours ouvrables (selon la complexité)\n\nLa configuration initiale comprend :\n- Découverte et recueil des besoins\n- Conception et développement\n- Tests et révisions\n- Lancement et transfert\n\nVous recevrez des mises à jour régulières tout au long du processus."
+            },
+            "evolution_model": {
+                "title": "Modèle d'Évolution Continue",
+                "content": "Après le lancement, votre service numérique évolue en continu :\n\nSystème de Crédits Mensuels :\nChaque pack inclut une allocation mensuelle de points d'évolution que vous pouvez utiliser pour :\n- Mises à jour de contenu\n- Nouvelles fonctionnalités\n- Améliorations du design\n- Optimisations techniques\n- Intégrations\n\nLes points non utilisés ne sont pas reportés. Les mises à niveau de pack vous donnent plus de points mensuels pour des évolutions plus importantes."
+            },
+            "workflow": {
+                "title": "Processus de Demande",
+                "content": "Comment demander des changements et évolutions :\n\n1. Soumettre la Demande : Via tableau de bord ou email\n2. Évaluation des Crédits : Nous évaluons les points nécessaires\n3. Approbation : Vous approuvez l'utilisation des crédits\n4. Développement : Nous implémentons le changement\n5. Revue : Vous testez et validez\n6. Déploiement : Les changements sont mis en ligne\n\nDélais typiques :\n- Petites mises à jour (1-3 points) : 3-5 jours ouvrables\n- Fonctionnalités moyennes (4-10 points) : 7-10 jours ouvrables\n- Grandes évolutions (10+ points) : 2-3 semaines\n\nLes demandes urgentes peuvent être priorisées moyennant des frais supplémentaires."
+            },
+            "hosting_maintenance": {
+                "title": "Hébergement & Maintenance",
+                "content": "Inclus dans tous les packs :\n\n• Hébergement sécurisé sur infrastructure d'entreprise\n• Certificats SSL et mises à jour de sécurité\n• Sauvegardes automatisées quotidiennes\n• Surveillance du temps de fonctionnement (SLA 99,9%)\n• Optimisation des performances\n• Correctifs de sécurité mensuels\n\nFenêtres de maintenance (si nécessaire) :\nPlanifiées pendant les périodes de faible trafic avec préavis. La plupart des mises à jour se font sans interruption de service."
+            }
+        }
+    },
+    "analytics": {
+        "dashboard": {
+            "title": "Tableau de Bord Analytique",
+            "subtitle": "Suivez les performances de votre site et le comportement des visiteurs",
+            "onlineUsers": "utilisateurs en ligne",
+            "refreshData": "Actualiser les données",
+            "previousPeriod": "vs période précédente",
+            "elements": "éléments",
+            "topElement": "Meilleur élément",
+            "element": "Élément",
+            "unknownError": "Erreur inconnue",
+            "loadingFailed": "Échec du chargement des données",
+            "someDataFailed": "Certains points de données n'ont pas pu être chargés",
+            "errorTitle": "Erreur de chargement du tableau de bord",
+            "warningsTitle": "Disponibilité des données",
+            "warningsSome": "Il y a quelques problèmes avec les sources de données :",
+            "periods": {
+                "7d": "7 derniers jours",
+                "30d": "30 derniers jours",
+                "90d": "90 derniers jours",
+                "1y": "Dernière année"
+            },
+            "stats": {
+                "visitors": "Visiteurs",
+                "visitorsDesc": "Utilisateurs uniques",
+                "pageViews": "Pages Vues",
+                "pageViewsDesc": "Total des pages vues",
+                "visits": "Sessions",
+                "visitsDesc": "Sessions uniques",
+                "bounceRate": "Taux de Rebond",
+                "bounceRateDesc": "Visites d'une seule page",
+                "avgDuration": "Durée Moyenne",
+                "avgDurationDesc": "Temps par session"
+            },
+            "quickInsights": {
+                "popularPages": "Pages Populaires",
+                "topCountries": "Top Pays",
+                "browsers": "Navigateurs",
+                "devices": "Appareils"
+            },
+            "tabs": {
+                "overview": "Aperçu",
+                "pages": "Pages",
+                "audience": "Audience",
+                "technology": "Technologie"
+            },
+            "overview": {
+                "pageViewsEvolution": "Évolution des Pages Vues",
+                "pageViewsAnalysis": "Analyse du trafic au fil du temps",
+                "performance": "Performance Générale",
+                "engagementRate": "Taux d'engagement",
+                "pagesPerSession": "Pages per session"
+            },
+            "pages": {
+                "mostVisited": "Pages les Plus Visitées",
+                "detailedAnalysis": "Analyse détaillée par URL",
+                "home": "Accueil",
+                "views": "vues",
+                "distribution": "Répartition du Trafic",
+                "pages": "Pages"
+            },
+            "audience": {
+                "globalAudience": "Audience Globale",
+                "geographicDistribution": "Visiteurs par pays",
+                "deviceTypes": "Types d'appareils",
+                "techPreferences": "Préférences technologiques des visiteurs"
+            },
+            "technology": {
+                "webBrowsers": "Navigateurs Web",
+                "browsingTechnologies": "Technologies de navigation les plus utilisées",
+                "operatingSystems": "Systèmes d'Exploitation",
+                "systemPreferences": "Répartition par plateforme et système",
+                "desktop": "Ordinateur",
+                "mobile": "Mobile",
+                "tablet": "Tablette"
+            }
+        },
+        "realtime": {
+            "title": "Trafic en Temps Réel",
+            "subtitle": "Activité sur le site au cours des dernières minutes",
+            "loading": "Chargement des données en temps réel...",
+            "visitorConnected": "visiteur actuellement en ligne",
+            "visitorsConnected": "visiteurs actuellement en ligne",
+            "updateFrequency": "Mis à jour toutes les 30 secondes",
+            "noVisitor": "Aucun visiteur actif",
+            "noVisitorDesc": "Attendez qu'un visiteur arrive pour voir l'activité",
+            "lastUpdate": "Dernière mise à jour",
+            "error": "Erreur temps réel",
+            "configMissing": "Configuration Umami manquante"
+        },
+        "export": {
+            "button": "Exporter les Données",
+            "exporting": "Export en cours...",
+            "csv": "Exporter en CSV",
+            "json": "Exporter en JSON",
+            "print": "Imprimer la Page",
+            "csvHeader": "Type,Nom,Valeur,Pourcentage",
+            "csvStat": "Statistique",
+            "csvPage": "Page",
+            "csvCountry": "Pays",
+            "error": "L'export a échoué"
+        }
+    },
+    "admin": {
+        "summary": {
+            "title": "Récapitulatif des Statistiques",
+            "description": "Vue d'ensemble des activités du site",
+            "export_pdf": "Exporter en PDF",
+            "filter_period": "Filtrer par période",
+            "filter_desc": "Sélectionnez une plage de dates pour afficher les statistiques",
+            "start_date": "Date de début",
+            "end_date": "Date de fin",
+            "apply_filter": "Appliquer le filtre",
+            "loading": "Chargement...",
+            "page_views": "Vues du site",
+            "new_users": "Nouvelles inscriptions",
+            "payments": "Paiements",
+            "payments_amount": "Montant des paiements",
+            "orders": "Commandes",
+            "orders_amount": "Montant des commandes",
+            "contact_messages": "Messages de contact",
+            "conversion_rate": "Taux de conversion",
+            "conversion_desc": "Commandes / Inscriptions",
+            "average_cart": "Panier moyen",
+            "average_cart_desc": "Montant moyen par commande",
+            "additional_info": "Informations complémentaires",
+            "generated_on": "Généré le",
+            "metric": "Métrique",
+            "value": "Valeur"
+        },
+        "history": "Historique d'activité",
+        "history_desc": "Suivi des actions effectuées par les utilisateurs sur la plateforme.",
+        "user": "Utilisateur",
+        "action": "Action",
+        "description": "Description",
+        "ip_device": "IP / Appareil",
+        "date": "Date",
+        "visitor": "Visiteur",
+        "unknown": "Inconnu",
+        "export_excel": "Exporter en Excel"
+    },
+    "general_support": {
+        "title": "Support Général",
+        "description": "Demandez de l'aide ou soumettez une remarque générale.",
+        "new_request": "Nouvelle demande",
+        "no_tickets": "Aucune demande de support trouvée",
+        "subject": "Sujet",
+        "message": "Message",
+        "priority": "Priorité",
+        "category": "Catégorie",
+        "status": "Statut",
+        "submit": "Envoyer",
+        "cancel": "Annuler",
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "take": "Prendre en charge",
+        "update": "Mettre à jour",
+        "pending": "En attente",
+        "in_progress": "En cours",
+        "done": "Terminé",
+        "cancelled": "Annulé",
+        "low": "Basse",
+        "medium": "Moyenne",
+        "high": "Haute",
+        "critical": "Critique",
+        "remarque": "Remarque",
+        "aide": "Aide",
+        "bug": "Bug",
+        "autre": "Autre",
+        "success_create": "Demande envoyée avec succès",
+        "success_update": "Demande mise à jour",
+        "success_delete": "Demande supprimée",
+        "confirm_delete": "Êtes-vous sûr de vouloir supprimer cette demande ?"
+    },
+    "pillars": {
+        "title": "Les 5 piliers de l'écosystème",
+        "subtitle": "Cinq domaines d'expertise complémentaires pour soutenir votre croissance à chaque étape",
+        "business": {
+            "title": "Blue Valoris Business",
+            "description": "Votre partenaire pour créer, gérer et structurer votre entreprise internationale. Création, comptabilité, conformité.",
+            "buttonText": "Explorer Blue Valoris Business"
+        },
+        "tech": {
+            "title": "Blue Valoris Tech",
+            "description": "Solutions numériques et IA pour accélérer la croissance de votre entreprise. Branding, sites web, automatisation.",
+            "buttonText": "Explorer Blue Valoris Tech"
+        },
+        "invest": {
+            "title": "Blue Valoris Invest",
+            "description": "Opportunités d'investissement et stratégies de croissance financière.",
+            "buttonText": "Explorer Blue Valoris Invest"
+        },
+        "install": {
+            "title": "Blue Valoris Install",
+            "description": "Support d'installation et d'expansion internationale.",
+            "buttonText": "Explorer Blue Valoris Install"
+        },
+        "portage": {
+            "title": "Blue Valoris Portage",
+            "description": "Portage salarial pour freelances en Afrique et Moyen-Orient : crédibilité, contrats sécurisés, paiements fiables à l'échelle mondiale.",
+            "buttonText": "Explorer Blue Valoris Portage"
+        }
+    },
+    "terms_of_service_page": {
+        "title": "Conditions Générales d'Utilisation",
+        "description": "Veuillez lire attentivement ces conditions générales avant d'utiliser notre service.",
+        "sections": {
+            "introduction": {
+                "title": "1. Introduction",
+                "content": "Ces conditions générales régissent votre utilisation de notre site web et de nos services. En accédant ou en utilisant nos services, vous acceptez d'être lié par ces conditions."
+            },
+            "use_of_service": {
+                "title": "2. Utilisation du service",
+                "content": "Vous acceptez de n'utiliser nos services qu'à des fins légitimes et d'une manière qui ne viole pas les droits, ne restreint ou n'empêche l'utilisation et la jouissance du site web par quiconque."
+            },
+            "intellectual_property": {
+                "title": "3. Droits de propriété intellectuelle",
+                "content": "Sauf indication contraire, nous ou nos concédants de licence possédons les droits de propriété intellectuelle du site web et du matériel sur le site web. Sous réserve de la licence ci-dessous, tous ces droits de propriété intellectuelle sont réservés."
+            },
+            "user_accounts": {
+                "title": "4. Comptes d'utilisateurs",
+                "content": "Si vous créez un compte sur notre site web, vous êtes responsable de maintenir la sécurité de votre compte, et vous êtes entièrement responsable de toutes les activités qui se produisent sous le compte."
+            },
+            "limitation_liability": {
+                "title": "5. Limitation de responsabilité",
+                "content": "En aucun cas nous ne pourrons être tenus responsables de tout dommage indirect, spécial, accessoire, consécutif ou punitif découlant de ou en relation avec votre utilisation du service."
+            },
+            "modifications": {
+                "title": "6. Modifications du service",
+                "content": "Nous nous réservons le droit à tout moment et de temps à autre de modifier ou d'interrompre, temporairement ou définitivement, le Service (ou toute partie de celui-ci) avec ou sans préavis."
+            },
+            "contact": {
+                "title": "7. Nous contacter",
+                "content": "Si vous avez des questions concernant ces conditions, veuillez nous contacter."
+            }
+        }
+    },
+    "cgv_page": {
+        "title": "Conditions Générales de Vente",
+        "description": "Veuillez lire attentivement ces conditions générales de vente avant d'effectuer un achat sur notre site web.",
+        "sections": {
+            "application": {
+                "title": "1. Application des conditions",
+                "content": "Les présentes conditions générales de vente (CGV) s'appliquent à l'ensemble des ventes de services et produits conclues par le biais de notre site internet. Toute commande implique l'adhésion entière et sans réserve du client à ces CGV."
+            },
+            "prices": {
+                "title": "2. Prix",
+                "content": "Les prix de nos services sont indiqués en euros toutes taxes comprises (TTC). Nous nous réservons le droit de modifier nos prix à tout moment, mais les services seront facturés sur la base des tarifs en vigueur au moment de la validation de la commande."
+            },
+            "orders": {
+                "title": "3. Commandes",
+                "content": "Vous pouvez valider votre commande après avoir vérifié le récapitulatif final. Toute validation de commande implique l'acceptation du prix et de la description des services disponibles."
+            },
+            "payment": {
+                "title": "4. Paiement",
+                "content": "Le paiement est exigible immédiatement à la commande. Les paiements sont sécurisés. Nous acceptons les paiements par  Stripe ."
+            },
+            "delivery": {
+                "title": "5. Livraison/Exécution",
+                "content": "Les services immatériels commandés seront livrés ou exécutés selon les délais précisés lors du processus de commande."
+            },
+            "liability": {
+                "title": "6. Responsabilité",
+                "content": "Notre responsabilité ne saurait être engagée en cas de non-exécution ou de mauvaise exécution du contrat imputable à l'acheteur, au fait insurmontable et imprévisible d'un tiers, ou à un cas de force majeure."
+            },
+            "governing_law": {
+                "title": "7. Droit applicable",
+                "content": "Ces conditions sont régies par les lois applicables. En cas de litige, une solution amiable sera recherchée avant toute action judiciaire."
+            }
+        }
+    }
+}

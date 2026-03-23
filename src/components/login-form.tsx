@@ -18,7 +18,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { useLocale, useTranslations } from "next-intl"
 import { login } from "@/lib/auth"
 import { useState } from "react"
-import { Loader2, Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-react"
+import { Loader2, Eye, EyeOff, CircleAlert, CircleCheck } from "lucide-react"
 import Image from "next/image"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group"
 import { motion } from "framer-motion"
@@ -35,7 +35,7 @@ export function LoginForm({
   const searchParams = useSearchParams();
 
   const formSchema = z.object({
-    email: z.string().email({ message: t("invalid_email") }),
+    email: z.email({ message: t("invalid_email") }),
     password: z.string().min(1, { message: t("password_required") }),
   });
 
@@ -168,7 +168,7 @@ export function LoginForm({
               className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-300 px-4 py-3 rounded-xl"
             >
               <div className="flex items-center gap-2">
-                <AlertCircle className="h-4 w-4" />
+                <CircleAlert className="h-4 w-4" />
                 <p className="text-sm font-medium">{error}</p>
               </div>
               {isBlocked && (
@@ -194,7 +194,7 @@ export function LoginForm({
               className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 px-4 py-3 rounded-xl"
             >
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4" />
+                <CircleCheck className="h-4 w-4" />
                 <p className="text-sm font-medium">{success}</p>
               </div>
             </motion.div>
@@ -211,7 +211,7 @@ export function LoginForm({
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1 flex items-center gap-1 font-medium">
-                <AlertCircle className="h-3 w-3" />
+                <CircleAlert className="h-3 w-3" />
                 {errors.email.message}
               </p>
             )}
@@ -253,7 +253,7 @@ export function LoginForm({
 
             {errors.password && (
               <p className="text-red-500 text-sm mt-1 flex items-center gap-1 font-medium">
-                <AlertCircle className="h-3 w-3" />
+                <CircleAlert className="h-3 w-3" />
                 {errors.password.message}
               </p>
             )}

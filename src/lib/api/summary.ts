@@ -3,7 +3,7 @@ import { getSession } from '@/lib/auth'
 
 export async function getSummaryStats(startDate?: string, endDate?: string) {
     try {
-        const session = await getSession('session_user')
+        const session = await getSession('session')
         const cookieStore = await cookies()
         const token = (await cookieStore).get('token')?.value
 

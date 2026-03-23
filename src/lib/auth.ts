@@ -35,7 +35,7 @@ export async function login(formData: FormData) {
       const expires = new Date(Date.now() + 1000 * 60 * 60);
       const session = await encrypt({ user, expires });
 
-      cookieStore.set("session_user", session, { expires, httpOnly: true });
+      cookieStore.set("session", session, { expires, httpOnly: true });
       cookieStore.set("token", token, { expires, httpOnly: true });
 
       return {
@@ -182,7 +182,7 @@ export async function verifyRegistration(token: string) {
       const expires = new Date(Date.now() + 1000 * 60 * 60);
       const session = await encrypt({ user, expires });
 
-      cookieStore.set("session_user", session, { expires, httpOnly: true });
+      cookieStore.set("session", session, { expires, httpOnly: true });
       cookieStore.set("token", tokenAuth, { expires, httpOnly: true });
 
       return {
@@ -236,10 +236,10 @@ export async function resetPassword(data: any) {
 export async function logout() {
   const cookieStore = await cookies()
   // Destroy the session
-  cookieStore.set("session_user", "", { expires: new Date(0) });
+  cookieStore.set("session", "", { expires: new Date(0) });
   cookieStore.set("token", "", { expires: new Date(0) });
   cookieStore.delete("token");
-  cookieStore.delete("session_user");
+  cookieStore.delete("session");
   cookieStore.delete("XSRF-TOKEN");
   redirect('/')
 }
@@ -259,7 +259,7 @@ export async function getCookie(name: string) {
 }
 
 export async function updateSession(request: NextRequest) {
-  const session = request.cookies.get("session_user")?.value;
+  const session = request.cookies.get("session")?.value;
   if (!session) return;
 
   // Refresh the session so it doesn't expire
@@ -269,7 +269,7 @@ export async function updateSession(request: NextRequest) {
   parsed.expires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
   const res = NextResponse.next();
   res.cookies.set({
-    name: "session_user",
+    name: "session",
     value: await encrypt(parsed),
     httpOnly: true,
     expires: parsed.expires,

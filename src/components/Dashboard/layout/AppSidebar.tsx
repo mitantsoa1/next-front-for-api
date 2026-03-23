@@ -26,31 +26,6 @@ type NavItem = {
   }[];
 };
 
-
-
-const getPackStyle = (name: string) => {
-  if (!name) return null;
-  const lowerName = name.toLowerCase();
-
-  // Couleurs distinctes pour chaque pack
-  // Start (Chocolat) - Brun sombre
-  if (lowerName.includes('start')) return 'bg-[#5D4037]/10 dark:bg-[#5D4037]/30 border-l-2 border-[#5D4037]';
-
-  // Launch (Bronze) - Orange brûlé / Bronze
-  if (lowerName.includes('launch')) return 'bg-[#D84315]/10 dark:bg-[#D84315]/20 border-l-2 border-[#D84315]';
-
-  // Growth (Argent) - Gris métallique
-  if (lowerName.includes('growth')) return 'bg-slate-200/50 dark:bg-slate-700/50 border-l-2 border-slate-500';
-
-  // Scale+ (Or) - Jaune/Ambre doré
-  if (lowerName.includes('scale')) return 'bg-amber-100/50 dark:bg-amber-900/20 border-l-2 border-amber-500';
-
-  // Support+ (Platine) - Cyan grisâtre / Platine (distinct de l'argent)
-  if (lowerName.includes('support')) return 'bg-[#E0F7FA]/50 dark:bg-[#E0F7FA]/10 border-l-2 border-[#006064]';
-
-  return '';
-};
-
 const AppSidebar: React.FC = () => {
   const [packsApi, setPacksApi] = useState<{ id: number; pack_name: string; status: string, order_name: string, payment_status: string, user_email?: string }[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -504,7 +479,7 @@ const AppSidebar: React.FC = () => {
                     );
                   }
 
-                  const itemStyle = subItem.packName ? getPackStyle(subItem.packName) : '';
+                  const itemStyle = '';
 
                   return (
                     <li key={`${subItem.name}-${idx}`}>
