@@ -97,12 +97,12 @@ export function LoginForm({
           if (redirectUrl) {
             router.push(redirectUrl);
           } else {
-            router.push(`/${locale}/dashboard`);
+            router.push(`/${locale}/profile`);
           }
           router.refresh();
         }, 10);
       } else {
-        const resData = result.data;
+        const resData = result.data as any;
         if (resData?.is_blocked) {
           setIsBlocked(true);
           setError(locale === 'fr' ? "Votre compte est bloqué suite à plusieurs tentatives" : "Your account is blocked due to multiple attempts.");

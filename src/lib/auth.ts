@@ -11,12 +11,20 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function login(formData: FormData) {
   const cookieStore = await cookies();
-  await getXsrfToken();
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+
+  // Convert to plain object for JSON request
+  const payload = { email, password };
+
+  // Commenting out getXsrfToken as it might be unnecessary for JWT-based auth
+  // and might be causing connection issues.
+  // await getXsrfToken();
 
   try {
-    const response = await authApi.post('/login', formData, {
-      withCredentials: true,
-    });
+    await getXsrfToken();
+
+    const response = await authApi.post('/login', payload);
 
     const data = response.data.data || response.data;
 
@@ -48,26 +56,26 @@ export async function login(formData: FormData) {
       return {
         success: false,
         status: response.status,
-        message: response.data.message || "Login failed"
+        message: response.data.message || "Login failed",
+        data: response.data
       };
     }
 
   } catch (error: any) {
-    // Gestion spécifique des redirections Next.js
     if (error.digest?.startsWith('NEXT_REDIRECT')) {
       throw error;
     }
 
-    // Erreur réseau ou autre
+    console.error("Login Error:", error.message);
+
     if (!error.response) {
       return {
         success: false,
         status: 500,
-        message: "Network error or server unreachable"
+        message: "Server unreachable. Please check your connection or try again later."
       };
     }
 
-    // Erreur de l'API
     const status = error.response?.status || 500;
     let message = "An unexpected error occurred";
 
@@ -93,10 +101,9 @@ export async function login(formData: FormData) {
 }
 
 export async function signup(formData: FormData) {
-  const cookieStore = await cookies();
-  await getXsrfToken();
 
   try {
+    await getXsrfToken();
     const response = await authApi.post('/register', formData, {
       withCredentials: true, // Ajouté pour la cohérence
     });
@@ -114,7 +121,8 @@ export async function signup(formData: FormData) {
       return {
         success: false,
         status: response.status,
-        message: response.data.message || "Registration failed"
+        message: response.data.message || "Registration failed",
+        data: response.data
       };
     }
 
@@ -137,26 +145,23 @@ export async function signup(formData: FormData) {
     const status = error.response?.status || 500;
     let message = "An unexpected error occurred";
 
-    if (status === 400) {
+    if (error.response?.data?.errors) {
+      message = Object.values(error.response.data.errors).flat().join(', ');
+    } else if (error.response?.data?.message) {
+      message = error.response.data.message;
+    } else if (status === 400) {
       message = "Bad request. Please check your information";
     } else if (status === 409) {
       message = "User already exists with this email";
     } else if (status === 422) {
-      // Gestion des erreurs de validation Laravel
-      if (error.response?.data?.errors) {
-        const errors = error.response.data.errors;
-        message = Object.values(errors).flat().join(', ');
-      } else {
-        message = "Validation failed";
-      }
-    } else if (error.response?.data?.message) {
-      message = error.response.data.message;
+      message = "Validation failed";
     }
 
     return {
       success: false,
       status,
-      message
+      message,
+      data: error.response?.data
     };
   }
 }
@@ -165,6 +170,7 @@ export async function verifyRegistration(token: string) {
   const cookieStore = await cookies();
 
   try {
+    await getXsrfToken();
     const response = await authApi.post('/register/verify', { token });
     const data = response.data;
 
@@ -205,6 +211,7 @@ export async function verifyRegistration(token: string) {
 
 export async function forgotPassword(email: string, locale: string = 'en') {
   try {
+    await getXsrfToken();
     const response = await authApi.post('/forgot-password', { email, locale });
     return {
       success: true,
@@ -220,6 +227,7 @@ export async function forgotPassword(email: string, locale: string = 'en') {
 
 export async function resetPassword(data: any) {
   try {
+    await getXsrfToken();
     const response = await authApi.post('/reset-password', data);
     return {
       success: true,
@@ -244,18 +252,30 @@ export async function logout() {
   redirect('/')
 }
 
-export async function getSession(name: string) {
-  const cookieStore = await cookies()
-  const session = cookieStore.get(name)?.value;
-  if (!session) return null;
-  return await decrypt(session);
+export async function getSession(name: string = "session") {
+  try {
+    const cookieStore = await cookies();
+    if (!cookieStore) return null;
+    const cookie = cookieStore.get(name);
+    if (!cookie) return null;
+    return await decrypt(cookie.value);
+  } catch (error) {
+    console.error("getSession error:", error);
+    return null;
+  }
 }
 
 export async function getCookie(name: string) {
-  const cookieStore = await cookies()
-  const cookie = cookieStore.get(name)?.value;
-  if (!cookie) return null;
-  return cookie;
+  try {
+    const cookieStore = await cookies();
+    if (!cookieStore) return null;
+    const cookie = cookieStore.get(name);
+    if (!cookie) return null;
+    return cookie.value;
+  } catch (error) {
+    console.error("getCookie error:", error);
+    return null;
+  }
 }
 
 export async function updateSession(request: NextRequest) {

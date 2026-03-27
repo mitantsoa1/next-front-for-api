@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { Header } from "@/components/header"; // Import Header
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { getSession } from "@/lib/auth";
+import { NextIntlClientProvider } from "next-intl";
 
 
 const geistSans = Geist({
@@ -33,10 +34,12 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TooltipProvider>
-          <Header session={session} />
-          <main>{children}</main>
-        </TooltipProvider>
+        <NextIntlClientProvider>
+          <TooltipProvider>
+            <Header session={session} />
+            <main>{children}</main>
+          </TooltipProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

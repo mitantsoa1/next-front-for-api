@@ -479,6 +479,31 @@
         "password_required": "Password is required",
         "description": "Log in to your account to continue."
     },
+    "forgot_password": {
+        "title": "Forgot Password",
+        "description": "Enter your email address and we'll send you a link to reset your password.",
+        "email_label": "Email Address",
+        "email_placeholder": "name@example.com",
+        "submit_button": "Send Reset Link",
+        "sending": "Sending link...",
+        "success_message": "If an account exists with this email, you will receive a password reset link shortly.",
+        "invalid_email": "Please enter a valid email address.",
+        "back_to_login": "Back to login"
+    },
+    "reset_password": {
+        "title": "Reset Password",
+        "description": "Choose a new strong password for your account.",
+        "password_label": "New Password",
+        "confirm_password_label": "Confirm New Password",
+        "submit_button": "Reset Password",
+        "resetting": "Resetting password...",
+        "success_message": "Your password has been successfully reset. You can now login with your new password.",
+        "error_message": "The reset link is invalid or has expired. Please request a new one.",
+        "invalid_email": "Please enter a valid email address.",
+        "password_min_length": "Password must be at least 8 characters long.",
+        "passwords_dont_match": "The passwords do not match.",
+        "back_to_login": "Back to login"
+    },
     "signup": {
         "title": "Create an account",
         "description": "Enter your information to get started",

@@ -23,7 +23,7 @@ import Image from "next/image"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group"
 import { motion } from "framer-motion"
 import { useAuthTransition } from "./auth-layout"
-import ReCAPTCHA from "react-google-recaptcha"
+// import ReCAPTCHA from "react-google-recaptcha"
 
 export function SignupForm({
   className,
@@ -35,7 +35,7 @@ export function SignupForm({
 
   const formSchema = z.object({
     name: z.string().min(3, { message: t("name_min_length") }),
-    email: z.string().email({ message: t("invalid_email") }),
+    email: z.email({ message: t("invalid_email") }),
     password: z.string()
       .min(8, 'Password must be at least 8 characters')
       .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
@@ -66,7 +66,7 @@ export function SignupForm({
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(true);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -116,7 +116,7 @@ export function SignupForm({
         setSuccess(result.message || t("account_created"));
         setTimeout(() => {
           router.push(`/${locale}/login`);
-        }, 5000);
+        }, 1000);
       } else {
         setApiError(result.message || t("registration_failed"));
 
@@ -289,13 +289,13 @@ export function SignupForm({
             </Field>
           </div>
 
-          <div className="flex justify-start items-start p-0! ">
+          {/* <div className="flex justify-start items-start p-0! ">
             <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
               onChange={(val) => setCaptchaVerified(!!val)}
               className="scale-90 -ml-5 w-full!"
             />
-          </div>
+          </div> */}
 
           <Field>
             <Button
