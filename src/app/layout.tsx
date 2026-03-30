@@ -27,7 +27,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getSession('session');
+
 
   return (
     <html lang="en">
@@ -36,7 +36,6 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider>
           <TooltipProvider>
-            <Header session={session} />
             <main>{children}</main>
           </TooltipProvider>
         </NextIntlClientProvider>
