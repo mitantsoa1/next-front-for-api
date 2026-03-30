@@ -32,8 +32,8 @@ export default function UserDropdown() {
         className="flex items-center justify-center text-gray-700 dark:text-gray-400 gap-2"
       >
         <span className="overflow-hidden rounded-full h-8 w-8 border border-gray-200 dark:border-gray-700 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-          {user?.avatar_url ? (
-            <img src={user.avatar_url} alt={user.name} className="h-full w-full object-cover" />
+          {user?.avatar ? (
+            <img src={user.avatar} alt={user.name} className="h-full w-full object-cover" />
           ) : (
             <span className="text-xs font-bold text-gray-500">{getInitials(user?.name)}</span>
           )}

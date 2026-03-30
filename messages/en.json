@@ -412,6 +412,8 @@
         "payments": "Payments",
         "contact": "Contacts",
         "analytics": "Analytics",
+        "supports": "Support",
+        "backups": "Backups",
         "summary": "Summary",
         "history": "History",
         "legal": "Legal",
@@ -585,7 +587,15 @@
             "documents": "Documents",
             "team": "Team",
             "support": "Support"
-        }
+        },
+        "vitals": "Vitals Overview",
+        "welcome": "Welcome back to your command center.",
+        "totalUsers": "Total Users",
+        "dailyNew": "Daily New",
+        "activeSessions": "Active Sessions",
+        "growthRate": "Growth Rate",
+        "acquisition": "User Acquisition",
+        "recentReg": "Recent Registration"
     },
     "legal_notice": {
         "title": "Legal Notice",

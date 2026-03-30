@@ -1,9 +1,8 @@
 "use client";
-import NotificationDropdown from "@/components/Dashboard/components/header/NotificationDropdown";
+// import NotificationDropdown from "@/components/Dashboard/components/header/NotificationDropdown";
 import UserDropdown from "@/components/Dashboard/components/header/UserDropdown";
 import { useSidebar } from "@/components/Dashboard/context/SidebarContext";
-import LanguageSwitcher from "@/components/language-switcher";
-import { ModeToggle } from "@/components/mode-toggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { PanelLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -140,10 +139,10 @@ const AppHeader: React.FC = () => {
             <LanguageSwitcher />
             {/* <ThemeToggleButton /> */}
 
-            <ModeToggle />
+            {/* <ModeToggle /> */}
             {/* <!-- Dark Mode Toggler --> */}
 
-            <NotificationDropdown />
+            {/* <NotificationDropdown /> */}
             {/* <!-- Notification Menu Area --> */}
           </div>
           {/* <!-- User Area --> */}

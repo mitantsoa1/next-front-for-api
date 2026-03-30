@@ -27,11 +27,6 @@ type NavItem = {
 };
 
 const AppSidebar: React.FC = () => {
-  const [packsApi, setPacksApi] = useState<{ id: number; pack_name: string; status: string, order_name: string, payment_status: string, user_email?: string }[]>([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedUser, setSelectedUser] = useState<string>("all");
-  const [selectedStatus, setSelectedStatus] = useState<string>("all");
-  const [selectedPayment, setSelectedPayment] = useState<string>("all");
 
   const { isAdmin, isSuperAdmin } = useUserRole();
   const t = useTranslations("payment_status_badges");
@@ -44,86 +39,28 @@ const AppSidebar: React.FC = () => {
       name: tSidebar('users'),
       path: "/admin/users",
     },
-    {
-      icon: <Package2 size={20} />,
-      name: tSidebar('packages'),
-      path: "/admin/packages",
-    },
-    {
-      icon: <CreditCard size={20} />,
-      name: tSidebar('payments'),
-      path: "/admin/payments",
-    },
-    {
-      icon: <Mail size={20} />,
-      name: tSidebar('contact'),
-      path: "/admin/contacts",
-    },
+
     {
       icon: <ChartColumn size={20} />,
       name: tSidebar('analytics'),
       path: "/admin/analytics",
     },
-    {
-      icon: <PieChart size={20} />,
-      name: tSidebar('summary'),
-      path: "/admin/summary",
-    },
-    {
-      icon: <File size={20} />,
-      name: tSidebar('legal'),
-      subItems: [
-        {
-          name: 'CGU',
-          path: '/admin/cgu',
-        },
-        {
-          name: 'RGPD',
-          path: '/admin/rgpd',
-        },
-        {
-          name: 'CGV',
-          path: '/admin/cgv',
-        },
-      ]
+    // {
+    //   icon: <PieChart size={20} />,
+    //   name: tSidebar('summary'),
+    //   path: "/admin/summary",
+    // },
 
-    },
-    {
-      icon: <FileClock size={20} />,
-      name: tSidebar('history'),
-      path: "/admin/history",
-    },
-    {
-      icon: <Box size={20} />, // Using Box as a temporary icon, will change to Database if available or keep fallback
-      name: tSidebar('backups'),
-      path: "/admin/backups",
-    },
+    // {
+    //   icon: <FileClock size={20} />,
+    //   name: tSidebar('history'),
+    //   path: "/admin/history",
+    // },
+
   ], [tSidebar]);
 
-  const fetchPacks = useCallback(async () => {
-    try {
-      const response = await fetch('/api/user/packs');
-      if (!response.ok) {
-        throw new Error('Failed to fetch packs');
-      }
-      const data = await response.json();
-      setPacksApi(data);
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
 
-  useEffect(() => {
-    fetchPacks();
-
-    // Listen for pack updates from other components
-    window.addEventListener('packUpdated', fetchPacks);
-    return () => {
-      window.removeEventListener('packUpdated', fetchPacks);
-    };
-  }, [fetchPacks]);
-
-  const navItems = useMemo(() => [
+  const navItems = useMemo<NavItem[]>(() => [
     {
       icon: <LayoutDashboard size={20} />,
       name: tSidebar('dashboard'),
@@ -134,172 +71,13 @@ const AppSidebar: React.FC = () => {
       name: tSidebar('profile'),
       path: "/profile",
     },
-    {
-      icon: <HelpCircle size={20} />,
-      name: tSidebar('supports'),
-      path: "/support",
-    },
-    {
-      name: tSidebar('plan'),
-      icon: <Package2 size={20} />,
-      subItems: (() => {
-        const items: any[] = [];
-        const hasActiveFilters = searchQuery !== "" || selectedUser !== "all" || selectedStatus !== "all" || selectedPayment !== "all";
+    // {
+    //   icon: <HelpCircle size={20} />,
+    //   name: tSidebar('supports'),
+    //   path: "/support",
+    // },
 
-        // Extraire les options uniques pour les filtres
-        const uniqueUsers = Array.from(new Set(packsApi.map(p => p.user_email).filter(Boolean))) as string[];
-        const uniqueStatuses = Array.from(new Set(packsApi.map(p => p.status).filter(Boolean))) as string[];
-        const uniquePayments = Array.from(new Set(packsApi.map(p => p.payment_status).filter(Boolean))) as string[];
-
-        // Widget de recherche et filtre
-        items.push({
-          type: 'custom',
-          name: 'search-filter',
-          path: '',
-          component: (
-            <div className="px-5 pb-3 pt-1 space-y-2 sticky top-0 bg-white dark:bg-gray-900 z-10" onClick={(e) => e.stopPropagation()}>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder={tSidebar('search_placeholder')}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-2 pr-7 py-1.5 text-xs bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-500"
-                />
-                {hasActiveFilters && (
-                  <button
-                    onClick={() => {
-                      setSearchQuery("");
-                      setSelectedUser("all");
-                      setSelectedStatus("all");
-                      setSelectedPayment("all");
-                    }}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-red-500 hover:text-red-700 transition-colors"
-                  >
-                    <X size={14} />
-                  </button>
-                )}
-              </div>
-              <div className="space-y-1.5">
-                {/* User Filter */}
-                <select
-                  value={selectedUser}
-                  onChange={(e) => setSelectedUser(e.target.value)}
-                  className="w-full px-2 py-1 text-[10px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-500 text-gray-600 dark:text-gray-300"
-                >
-                  <option value="all">{tSidebar('all_users')}</option>
-                  {uniqueUsers.map(email => (
-                    <option key={email} value={email}>{email}</option>
-                  ))}
-                </select>
-
-                {/* Status Filter */}
-                <select
-                  value={selectedStatus}
-                  onChange={(e) => setSelectedStatus(e.target.value)}
-                  className="w-full px-2 py-1 text-[10px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-500 text-gray-600 dark:text-gray-300"
-                >
-                  <option value="all">{tSidebar('all_statuses')}</option>
-                  {uniqueStatuses.map(status => {
-                    const statusKey = status.toLowerCase();
-                    let translatedStatus = status;
-                    try {
-                      translatedStatus = tStatus(statusKey);
-                    } catch (e) {
-                      translatedStatus = status;
-                    }
-                    return (
-                      <option key={status} value={status}>{translatedStatus}</option>
-                    );
-                  })}
-                </select>
-
-                {/* Payment Status Filter */}
-                <select
-                  value={selectedPayment}
-                  onChange={(e) => setSelectedPayment(e.target.value)}
-                  className="w-full px-2 py-1 text-[10px] bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-1 focus:ring-brand-500 text-gray-600 dark:text-gray-300"
-                >
-                  <option value="all">{tSidebar('all_payments')}</option>
-                  {uniquePayments.map(status => (
-                    <option key={status} value={status}>{t(status)}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          )
-        });
-
-        const packGroups: Record<string, typeof packsApi> = {};
-
-        // Filtrage
-        const filteredPacks = packsApi.filter(pack => {
-          // Filtre recherche
-          if (searchQuery) {
-            const query = searchQuery.toLowerCase();
-            const matchesName = (pack.order_name || pack.pack_name || pack.status || pack.payment_status || '').toLowerCase().includes(query);
-            const matchesEmail = (pack.user_email || '').toLowerCase().includes(query);
-            if (!matchesName && !matchesEmail) return false;
-          }
-
-          // Filtre User
-          if (selectedUser !== 'all' && pack.user_email !== selectedUser) {
-            return false;
-          }
-
-          // Filtre Status
-          if (selectedStatus !== 'all' && pack.status !== selectedStatus) {
-            return false;
-          }
-
-          // Filtre Payment
-          if (selectedPayment !== 'all' && pack.payment_status !== selectedPayment) {
-            return false;
-          }
-
-          return true;
-        });
-
-        // Grouper les packs filtrés par nom (pack_name)
-        filteredPacks.forEach(pack => {
-          const key = pack.pack_name || 'Autre';
-          if (!packGroups[key]) {
-            packGroups[key] = [];
-          }
-          packGroups[key].push(pack);
-        });
-
-        const sortedPackNames = Object.keys(packGroups).sort();
-
-        sortedPackNames.forEach((packName, index) => {
-          const group = packGroups[packName];
-
-          if (group.length > 0) {
-            // Ajouter un séparateur avant chaque groupe
-            items.push({ name: 'separator', path: '', type: 'separator' });
-
-            // Ajouter l'en-tête du groupe (Nom du pack)
-            items.push({ name: packName, path: '', type: 'header' });
-
-            // Ajouter les packs du groupe
-            group.forEach(pack => {
-              const itemName = pack.order_name || pack.pack_name;
-              items.push({
-                name: itemName,
-                path: `/pack/${pack.id}`,
-                pro: false,
-                paymentStatus: pack.payment_status,
-                subtitle: pack.user_email,
-                packName: pack.pack_name
-              });
-            });
-          }
-        });
-
-        return items;
-      })()
-    },
-  ], [packsApi, searchQuery, selectedUser, selectedStatus, selectedPayment, tSidebar, tStatus, t]);
+  ], [tSidebar]);
 
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
   const pathname = usePathname();
