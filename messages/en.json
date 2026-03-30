@@ -417,8 +417,6 @@
         "summary": "Summary",
         "history": "History",
         "legal": "Legal",
-        "supports": "Support",
-        "backups": "Backups",
         "search_placeholder": "Search...",
         "all_users": "All users",
         "all_statuses": "All statuses",
@@ -982,6 +980,109 @@
                 "title": "7. Governing Law",
                 "content": "These conditions are governed by the applicable laws. In the event of a dispute, an amicable solution will be sought before any legal action."
             }
+        }
+    },
+    "analytics": {
+        "dashboard": {
+            "title": "Analytics Dashboard",
+            "subtitle": "Monitor your website performance and visitor behavior",
+            "onlineUsers": "users online",
+            "refreshData": "Refresh data",
+            "previousPeriod": "vs previous period",
+            "elements": "elements",
+            "topElement": "Top element",
+            "element": "Element",
+            "unknownError": "Unknown error",
+            "loadingFailed": "Failed to load data",
+            "someDataFailed": "Some data points could not be loaded",
+            "errorTitle": "Error Loading Dashboard",
+            "warningsTitle": "Data Availability",
+            "warningsSome": "There are some issues with the data sources:",
+            "periods": {
+                "7d": "Last 7 days",
+                "30d": "Last 30 days",
+                "90d": "Last 90 days",
+                "1y": "Last year"
+            },
+            "stats": {
+                "visitors": "Visitors",
+                "visitorsDesc": "Unique users",
+                "pageViews": "Page Views",
+                "pageViewsDesc": "Total pages viewed",
+                "visits": "Sessions",
+                "visitsDesc": "Unique sessions",
+                "bounceRate": "Bounce Rate",
+                "bounceRateDesc": "Single page visits",
+                "avgDuration": "Avg. Duration",
+                "avgDurationDesc": "Time per session"
+            },
+            "quickInsights": {
+                "popularPages": "Popular Pages",
+                "topCountries": "Top Countries",
+                "browsers": "Browsers",
+                "devices": "Devices"
+            },
+            "tabs": {
+                "overview": "Overview",
+                "pages": "Pages",
+                "audience": "Audience",
+                "technology": "Technology"
+            },
+            "overview": {
+                "pageViewsEvolution": "Page Views Evolution",
+                "pageViewsAnalysis": "Analysis of traffic over time",
+                "performance": "General Performance",
+                "engagementRate": "Engagement rate",
+                "pagesPerSession": "Pages per session"
+            },
+            "pages": {
+                "mostVisited": "Most Visited Pages",
+                "detailedAnalysis": "Detailed traffic per URL",
+                "home": "Home",
+                "views": "views",
+                "distribution": "Traffic Distribution",
+                "pages": "Pages"
+            },
+            "audience": {
+                "globalAudience": "Global Audience",
+                "geographicDistribution": "Visitors by country",
+                "deviceTypes": "Device Types",
+                "techPreferences": "Visitor technology preferences"
+            },
+            "technology": {
+                "webBrowsers": "Web Browsers",
+                "browsingTechnologies": "Top used browsing technologies",
+                "operatingSystems": "Operating Systems",
+                "systemPreferences": "System and platform distribution",
+                "desktop": "Desktop",
+                "mobile": "Mobile",
+                "tablet": "Tablet"
+            }
+        },
+        "realtime": {
+            "title": "Realtime Traffic",
+            "subtitle": "Activity on the site in the last few minutes",
+            "loading": "Loading realtime data...",
+            "visitorConnected": "visitor currently browsing",
+            "visitorsConnected": "visitors currently browsing",
+            "updateFrequency": "Updates every 30 seconds",
+            "noVisitor": "No active visitors",
+            "noVisitorDesc": "Wait for a visitor to see activity here",
+            "lastUpdate": "Last update",
+            "error": "Realtime error",
+            "configMissing": "Umami configuration missing"
+        },
+        "export": {
+            "button": "Export Data",
+            "exporting": "Exporting...",
+            "csv": "Export as CSV",
+            "json": "Export as JSON",
+            "print": "Print Page",
+            "csvHeader": "Type,Name,Value,Percentage",
+            "csvStat": "Statistic",
+            "csvPage": "Page",
+            "csvCountry": "Country",
+            "error": "Export failed"
         }
     }
 }

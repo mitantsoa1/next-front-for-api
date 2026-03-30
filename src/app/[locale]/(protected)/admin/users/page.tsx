@@ -23,6 +23,8 @@ import {
 import axios from "axios";
 import { useSidebar } from "@/components/Dashboard/context/SidebarContext";
 import { toast } from "sonner";
+import { ColumnDef } from "@tanstack/react-table";
+import { DataTable } from "@/components/data-table";
 
 const Badge = ({ children, variant = "default" }: any) => {
   const styles = {
@@ -56,13 +58,13 @@ const UsersSkeleton = () => (
       <div className="h-8 w-full bg-gray-100/50 dark:bg-gray-800/50 mb-6" />
       {[...Array(5)].map((_, i) => (
         <div key={i} className="flex px-8 py-4 items-center gap-6 border-b border-gray-100/50 dark:border-gray-800/50">
-           <div className="w-12 h-12 rounded-2xl bg-gray-200 dark:bg-gray-800" />
-           <div className="space-y-2 flex-1">
-             <div className="h-4 w-32 bg-gray-200 dark:bg-gray-800 rounded-md" />
-             <div className="h-3 w-48 bg-gray-200 dark:bg-gray-800 rounded-md" />
-           </div>
-           <div className="h-6 w-24 bg-gray-200 dark:bg-gray-800 rounded-full flex-shrink-0" />
-           <div className="h-8 w-32 bg-gray-200 dark:bg-gray-800 rounded-lg flex-shrink-0" />
+          <div className="w-12 h-12 rounded-2xl bg-gray-200 dark:bg-gray-800" />
+          <div className="space-y-2 flex-1">
+            <div className="h-4 w-32 bg-gray-200 dark:bg-gray-800 rounded-md" />
+            <div className="h-3 w-48 bg-gray-200 dark:bg-gray-800 rounded-md" />
+          </div>
+          <div className="h-6 w-24 bg-gray-200 dark:bg-gray-800 rounded-full shrink-0" />
+          <div className="h-8 w-32 bg-gray-200 dark:bg-gray-800 rounded-lg shrink-0" />
         </div>
       ))}
       <div className="h-16 bg-gray-100/50 dark:bg-gray-800/50" />
@@ -75,8 +77,98 @@ export default function UserManagementPage() {
   const router = useRouter();
   const [users, setUsers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
   const [selectedUser, setSelectedUser] = useState<any>(null);
+
+  const columns: ColumnDef<any>[] = [
+    {
+      accessorKey: "name",
+      header: "User Profile",
+      cell: ({ row }) => {
+        const u = row.original;
+        return (
+          <div className="flex items-center justify-start gap-4 text-left">
+            <div className="w-12 h-12 rounded-2xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center font-bold text-gray-400 shadow-inner group-hover:bg-primary group-hover:text-white transition-all duration-500">
+              {u.name.charAt(0)}
+            </div>
+            <div className="space-y-0.5 justify-start">
+              <p className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">{u.name}</p>
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+      cell: ({ row }) => {
+        const u = row.original;
+        return (
+          <div className="flex items-center justify-center gap-4 text-left">
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
+                <Mail className="w-3 h-3" />
+                {u.email}
+              </div>
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      accessorKey: "role",
+      header: "Role & Security",
+      cell: ({ row }) => {
+        const u = row.original;
+        return (
+          <div className="flex flex-col gap-2 items-center justify-center text-left">
+            <Badge variant={u.role}>{u.role || 'user'}</Badge>
+          </div>
+        );
+      },
+    },
+    {
+      accessorKey: "created_at",
+      header: "Activity Logs",
+      cell: ({ row }) => {
+        const u = row.original;
+        return (
+          <div className="space-y-1 text-left">
+            <div className="flex items-center justify-center   gap-2 text-xs font-medium text-gray-500 dark:text-gray-400">
+              <Calendar className="w-3.5 h-3.5 text-gray-400" />
+              Created: {new Date(u.created_at).toLocaleDateString()}
+            </div>
+            <div className="flex items-center justify-center  gap-2 text-[10px] font-mono text-gray-400 opacity-60">
+              <Activity className="w-3.5 h-3.5" />
+              ID: #{u.id?.toString().padStart(5, '0')}
+            </div>
+          </div>
+        );
+      },
+    },
+    {
+      id: "actions",
+      header: "Control",
+      cell: ({ row }) => {
+        const u = row.original;
+        return (
+          <div className="flex items-center justify-center gap-2 pr-0 opacity-100 transition-opacity">
+            <button
+              onClick={() => setSelectedUser(u)}
+              className="p-3 text-blue-500 bg-blue-500/10 rounded-xl hover:bg-blue-500 hover:text-white transition-all shadow-sm"
+            >
+              <Edit3 className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => handleDelete(u.id)}
+              className="p-3 text-rose-500 bg-rose-500/10 rounded-xl hover:bg-rose-500 hover:text-white transition-all shadow-sm"
+            >
+              <Trash2 className="w-4 h-4" />
+            </button>
+          </div>
+        );
+      },
+    }
+  ];
 
   // Security check: Only admins can access this page
   useEffect(() => {
@@ -102,11 +194,6 @@ export default function UserManagementPage() {
   useEffect(() => {
     fetchUsers();
   }, []);
-
-  const filteredUsers = users.filter(u =>
-    u.name.toLowerCase().includes(search.toLowerCase()) ||
-    u.email.toLowerCase().includes(search.toLowerCase())
-  );
 
   const handleDelete = async (id: number) => {
     if (!confirm("Are you sure you want to terminate this identity?")) return;
@@ -136,16 +223,6 @@ export default function UserManagementPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="relative group">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-primary transition-colors" />
-            <input
-              type="text"
-              placeholder="Search Identity..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-md border border-gray-100 dark:border-gray-700 rounded-2xl py-3 pl-12 pr-6 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all w-full md:w-64"
-            />
-          </div>
           <button className="flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 hover:scale-105 transition-all">
             <UserPlus className="w-4 h-4" />
             <span>ENROLL</span>
@@ -154,99 +231,8 @@ export default function UserManagementPage() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-800/20 rounded-[32px] overflow-hidden shadow-2xl shadow-black/5">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-gray-100 dark:border-gray-800/50">
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">User Profile</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Role & Security</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Activity Logs</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 text-right">Control</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100 dark:divide-gray-800/50">
-              <AnimatePresence mode="popLayout">
-                {filteredUsers.map((u, i) => (
-                  <motion.tr
-                    key={u.id}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ delay: i * 0.05 }}
-                    className="group hover:bg-white/40 dark:hover:bg-white/5 transition-colors cursor-default"
-                  >
-                    <td className="px-8 py-6">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-2xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center font-bold text-gray-400 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-inner">
-                          {u.name.charAt(0)}
-                        </div>
-                        <div className="space-y-0.5">
-                          <p className="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">{u.name}</p>
-                          <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
-                            <Mail className="w-3 h-3" />
-                            {u.email}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6">
-                      <div className="flex flex-col gap-2 items-start">
-                        <Badge variant={u.role}>{u.role || 'user'}</Badge>
-                        <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-500/80 uppercase">
-                          <CheckCircle2 className="w-3 h-3" />
-                          Verified
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6">
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2 text-xs font-medium text-gray-500 dark:text-gray-400">
-                          <Calendar className="w-3.5 h-3.5 text-gray-400" />
-                          Created: {new Date(u.created_at).toLocaleDateString()}
-                        </div>
-                        <div className="flex items-center gap-2 text-[10px] font-mono text-gray-400 opacity-60">
-                          <Activity className="w-3.5 h-3.5" />
-                          ID: #{u.id?.toString().padStart(5, '0')}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-6">
-                      <div className="flex items-center justify-end gap-2 pr-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button
-                          onClick={() => setSelectedUser(u)}
-                          className="p-3 text-blue-500 bg-blue-500/10 rounded-xl hover:bg-blue-500 hover:text-white transition-all shadow-sm"
-                        >
-                          <Edit3 className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(u.id)}
-                          className="p-3 text-rose-500 bg-rose-500/10 rounded-xl hover:bg-rose-500 hover:text-white transition-all shadow-sm"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </motion.tr>
-                ))}
-              </AnimatePresence>
-            </tbody>
-          </table>
-        </div>
-
-        {/* Pagination placeholder */}
-        <div className="px-8 py-6 border-t border-gray-100 dark:border-gray-800/50 flex items-center justify-between">
-          <p className="text-xs font-mono text-gray-400 uppercase tracking-widest">
-            Showing {filteredUsers.length} active nodes
-          </p>
-          <div className="flex items-center gap-2">
-            {[1, 2, 3].map(p => (
-              <button key={p} className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all ${p === 1 ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
-                {p}
-              </button>
-            ))}
-          </div>
-        </div>
+      <div className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-gray-800/20 rounded-[32px] p-6 shadow-2xl shadow-black/5">
+        <DataTable columns={columns} data={users} filename="users_export" />
       </div>
 
       {/* User Detail Sidebar (Mock) */}

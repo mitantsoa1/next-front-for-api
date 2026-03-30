@@ -703,109 +703,6 @@
             }
         }
     },
-    "analytics": {
-        "dashboard": {
-            "title": "Tableau de Bord Analytique",
-            "subtitle": "Suivez les performances de votre site et le comportement des visiteurs",
-            "onlineUsers": "utilisateurs en ligne",
-            "refreshData": "Actualiser les données",
-            "previousPeriod": "vs période précédente",
-            "elements": "éléments",
-            "topElement": "Meilleur élément",
-            "element": "Élément",
-            "unknownError": "Erreur inconnue",
-            "loadingFailed": "Échec du chargement des données",
-            "someDataFailed": "Certains points de données n'ont pas pu être chargés",
-            "errorTitle": "Erreur de chargement du tableau de bord",
-            "warningsTitle": "Disponibilité des données",
-            "warningsSome": "Il y a quelques problèmes avec les sources de données :",
-            "periods": {
-                "7d": "7 derniers jours",
-                "30d": "30 derniers jours",
-                "90d": "90 derniers jours",
-                "1y": "Dernière année"
-            },
-            "stats": {
-                "visitors": "Visiteurs",
-                "visitorsDesc": "Utilisateurs uniques",
-                "pageViews": "Pages Vues",
-                "pageViewsDesc": "Total des pages vues",
-                "visits": "Sessions",
-                "visitsDesc": "Sessions uniques",
-                "bounceRate": "Taux de Rebond",
-                "bounceRateDesc": "Visites d'une seule page",
-                "avgDuration": "Durée Moyenne",
-                "avgDurationDesc": "Temps par session"
-            },
-            "quickInsights": {
-                "popularPages": "Pages Populaires",
-                "topCountries": "Top Pays",
-                "browsers": "Navigateurs",
-                "devices": "Appareils"
-            },
-            "tabs": {
-                "overview": "Aperçu",
-                "pages": "Pages",
-                "audience": "Audience",
-                "technology": "Technologie"
-            },
-            "overview": {
-                "pageViewsEvolution": "Évolution des Pages Vues",
-                "pageViewsAnalysis": "Analyse du trafic au fil du temps",
-                "performance": "Performance Générale",
-                "engagementRate": "Taux d'engagement",
-                "pagesPerSession": "Pages per session"
-            },
-            "pages": {
-                "mostVisited": "Pages les Plus Visitées",
-                "detailedAnalysis": "Analyse détaillée par URL",
-                "home": "Accueil",
-                "views": "vues",
-                "distribution": "Répartition du Trafic",
-                "pages": "Pages"
-            },
-            "audience": {
-                "globalAudience": "Audience Globale",
-                "geographicDistribution": "Visiteurs par pays",
-                "deviceTypes": "Types d'appareils",
-                "techPreferences": "Préférences technologiques des visiteurs"
-            },
-            "technology": {
-                "webBrowsers": "Navigateurs Web",
-                "browsingTechnologies": "Technologies de navigation les plus utilisées",
-                "operatingSystems": "Systèmes d'Exploitation",
-                "systemPreferences": "Répartition par plateforme et système",
-                "desktop": "Ordinateur",
-                "mobile": "Mobile",
-                "tablet": "Tablette"
-            }
-        },
-        "realtime": {
-            "title": "Trafic en Temps Réel",
-            "subtitle": "Activité sur le site au cours des dernières minutes",
-            "loading": "Chargement des données en temps réel...",
-            "visitorConnected": "visiteur actuellement en ligne",
-            "visitorsConnected": "visiteurs actuellement en ligne",
-            "updateFrequency": "Mis à jour toutes les 30 secondes",
-            "noVisitor": "Aucun visiteur actif",
-            "noVisitorDesc": "Attendez qu'un visiteur arrive pour voir l'activité",
-            "lastUpdate": "Dernière mise à jour",
-            "error": "Erreur temps réel",
-            "configMissing": "Configuration Umami manquante"
-        },
-        "export": {
-            "button": "Exporter les Données",
-            "exporting": "Export en cours...",
-            "csv": "Exporter en CSV",
-            "json": "Exporter en JSON",
-            "print": "Imprimer la Page",
-            "csvHeader": "Type,Nom,Valeur,Pourcentage",
-            "csvStat": "Statistique",
-            "csvPage": "Page",
-            "csvCountry": "Pays",
-            "error": "L'export a échoué"
-        }
-    },
     "admin": {
         "summary": {
             "title": "Récapitulatif des Statistiques",
@@ -972,6 +869,109 @@
                 "title": "7. Droit applicable",
                 "content": "Ces conditions sont régies par les lois applicables. En cas de litige, une solution amiable sera recherchée avant toute action judiciaire."
             }
+        }
+    },
+    "analytics": {
+        "dashboard": {
+            "title": "Tableau de Bord Analytique",
+            "subtitle": "Suivez les performances de votre site et le comportement des visiteurs",
+            "onlineUsers": "utilisateurs en ligne",
+            "refreshData": "Actualiser les données",
+            "previousPeriod": "vs période précédente",
+            "elements": "éléments",
+            "topElement": "Meilleur élément",
+            "element": "Élément",
+            "unknownError": "Erreur inconnue",
+            "loadingFailed": "Échec du chargement des données",
+            "someDataFailed": "Certains points de données n'ont pas pu être chargés",
+            "errorTitle": "Erreur de chargement du tableau de bord",
+            "warningsTitle": "Disponibilité des données",
+            "warningsSome": "Il y a quelques problèmes avec les sources de données :",
+            "periods": {
+                "7d": "7 derniers jours",
+                "30d": "30 derniers jours",
+                "90d": "90 derniers jours",
+                "1y": "Dernière année"
+            },
+            "stats": {
+                "visitors": "Visiteurs",
+                "visitorsDesc": "Utilisateurs uniques",
+                "pageViews": "Pages Vues",
+                "pageViewsDesc": "Total des pages vues",
+                "visits": "Sessions",
+                "visitsDesc": "Sessions uniques",
+                "bounceRate": "Taux de Rebond",
+                "bounceRateDesc": "Visites d'une seule page",
+                "avgDuration": "Durée Moyenne",
+                "avgDurationDesc": "Temps par session"
+            },
+            "quickInsights": {
+                "popularPages": "Pages Populaires",
+                "topCountries": "Top Pays",
+                "browsers": "Navigateurs",
+                "devices": "Appareils"
+            },
+            "tabs": {
+                "overview": "Aperçu",
+                "pages": "Pages",
+                "audience": "Audience",
+                "technology": "Technologie"
+            },
+            "overview": {
+                "pageViewsEvolution": "Évolution des Pages Vues",
+                "pageViewsAnalysis": "Analyse du trafic au fil du temps",
+                "performance": "Performance Générale",
+                "engagementRate": "Taux d'engagement",
+                "pagesPerSession": "Pages per session"
+            },
+            "pages": {
+                "mostVisited": "Pages les Plus Visitées",
+                "detailedAnalysis": "Analyse détaillée par URL",
+                "home": "Accueil",
+                "views": "vues",
+                "distribution": "Répartition du Trafic",
+                "pages": "Pages"
+            },
+            "audience": {
+                "globalAudience": "Audience Globale",
+                "geographicDistribution": "Visiteurs par pays",
+                "deviceTypes": "Types d'appareils",
+                "techPreferences": "Préférences technologiques des visiteurs"
+            },
+            "technology": {
+                "webBrowsers": "Navigateurs Web",
+                "browsingTechnologies": "Technologies de navigation les plus utilisées",
+                "operatingSystems": "Systèmes d'Exploitation",
+                "systemPreferences": "Répartition par plateforme et système",
+                "desktop": "Ordinateur",
+                "mobile": "Mobile",
+                "tablet": "Tablette"
+            }
+        },
+        "realtime": {
+            "title": "Trafic en Temps Réel",
+            "subtitle": "Activité sur le site au cours des dernières minutes",
+            "loading": "Chargement des données en temps réel...",
+            "visitorConnected": "visiteur actuellement en ligne",
+            "visitorsConnected": "visiteurs actuellement en ligne",
+            "updateFrequency": "Mis à jour toutes les 30 secondes",
+            "noVisitor": "Aucun visiteur actif",
+            "noVisitorDesc": "Attendez qu'un visiteur arrive pour voir l'activité",
+            "lastUpdate": "Dernière mise à jour",
+            "error": "Erreur temps réel",
+            "configMissing": "Configuration Umami manquante"
+        },
+        "export": {
+            "button": "Exporter les Données",
+            "exporting": "Export en cours...",
+            "csv": "Exporter en CSV",
+            "json": "Exporter en JSON",
+            "print": "Imprimer la Page",
+            "csvHeader": "Type,Nom,Valeur,Pourcentage",
+            "csvStat": "Statistique",
+            "csvPage": "Page",
+            "csvCountry": "Pays",
+            "error": "L'export a échoué"
         }
     }
 }
