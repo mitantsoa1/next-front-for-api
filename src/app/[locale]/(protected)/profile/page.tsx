@@ -19,10 +19,15 @@ import {
   CircleAlert,
   Loader2,
   UserCheck,
+  Trash2,
+  X,
 } from "lucide-react";
 import { useSidebar } from "@/components/Dashboard/context/SidebarContext";
 import { toast } from "sonner";
 import axios from "axios";
+import { deleteAccount } from "@/lib/auth";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
@@ -176,8 +181,96 @@ const ProfileSkeleton = () => (
   </div>
 );
 
+const DeleteConfirmationModal = ({
+  isOpen,
+  onClose,
+  onConfirm,
+  isDeleting,
+  locale,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  isDeleting: boolean;
+  locale: string;
+}) => (
+  <AnimatePresence>
+    {isOpen && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        {/* Backdrop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="absolute inset-0 bg-gray-950/60 backdrop-blur-sm"
+        />
+
+        {/* Modal */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: 20 }}
+          className="relative w-full max-w-sm bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[32px] overflow-hidden shadow-2xl"
+        >
+          {/* Header decoration */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-red-500" />
+          
+          <div className="p-8">
+            <div className="flex justify-between items-start mb-6">
+              <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-2xl">
+                <Trash2 className="w-6 h-6 text-red-500" />
+              </div>
+              <button
+                onClick={onClose}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-400" />
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-xl font-black text-gray-900 dark:text-white uppercase tracking-tight">
+                {locale === "fr" ? "Suppression du compte" : "Account Deletion"}
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                {locale === "fr"
+                  ? "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible et votre accès sera immédiatement révoqué."
+                  : "Are you sure you want to delete your account? This action is irreversible and your access will be immediately revoked."}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              <button
+                onClick={onClose}
+                className="px-6 py-3.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-sm font-bold rounded-2xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+              >
+                {locale === "fr" ? "Annuler" : "Cancel"}
+              </button>
+              <button
+                onClick={onConfirm}
+                disabled={isDeleting}
+                className="group relative px-6 py-3.5 bg-red-600 text-white text-sm font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {isDeleting ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Trash2 className="w-4 h-4" />
+                )}
+                <span>{locale === "fr" ? "Confirmer" : "Confirm"}</span>
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    )}
+  </AnimatePresence>
+);
+
 export default function ProfilePage() {
   const { user: sessionUser } = useSidebar();
+  const locale = useLocale();
+  const router = useRouter();
 
   // ── Profile state ──
   const [profile, setProfile] = useState({
@@ -218,6 +311,8 @@ export default function ProfilePage() {
     new: false,
     confirm: false,
   });
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   // ── Fetch fresh profile ──
   const fetchProfile = useCallback(async () => {
@@ -321,6 +416,28 @@ export default function ProfilePage() {
       }
     } finally {
       setIsSavingPassword(false);
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    setIsDeleting(true);
+    try {
+      const result = await deleteAccount();
+      if (result.success) {
+        setIsDeleteModalOpen(false);
+        toast.success(
+          locale === "fr"
+            ? "Votre compte a été supprimé."
+            : "Your account has been deleted."
+        );
+        router.push(`/${locale}/login`);
+      } else {
+        toast.error(result.message || "Erreur lors de la suppression du compte.");
+      }
+    } catch {
+      toast.error("Une erreur est survenue.");
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -672,6 +789,52 @@ export default function ProfilePage() {
 
         </div>
       </div>
+
+      {/* ── Danger Zone ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+        className="mt-8"
+      >
+        <div className="bg-red-50/50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/50 rounded-[28px] p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
+          <div className="absolute top-0 right-0 p-8 opacity-5">
+            <Trash2 className="w-32 h-32 text-red-500" />
+          </div>
+          <div className="relative space-y-2 text-center md:text-left">
+            <h3 className="text-xl font-black text-red-600 dark:text-red-400 uppercase tracking-tight">
+              {locale === "fr" ? "Zone de danger" : "Danger Zone"}
+            </h3>
+            <p className="text-sm text-red-700/60 dark:text-red-400/60 max-w-xl font-medium">
+              {locale === "fr"
+                ? "La suppression de votre compte entraînera la désactivation immédiate de votre accès. Vos données seront conservées conformément à nos politiques de rétention avant suppression définitive."
+                : "Deleting your account will immediately deactivate your access. Your data will be retained in accordance with our retention policies before final deletion."}
+            </p>
+          </div>
+          <button
+            onClick={() => setIsDeleteModalOpen(true)}
+            disabled={isDeleting}
+            className="relative px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-sm font-black rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-red-500/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 uppercase tracking-wide shrink-0"
+          >
+            {isDeleting ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              <Trash2 className="w-4 h-4" />
+            )}
+            {isDeleting
+              ? (locale === "fr" ? "Suppression..." : "Deleting...")
+              : (locale === "fr" ? "Supprimer mon compte" : "Delete my account")}
+          </button>
+        </div>
+      </motion.div>
+
+      <DeleteConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={handleDeleteAccount}
+        isDeleting={isDeleting}
+        locale={locale}
+      />
     </div>
   );
 }

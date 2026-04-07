@@ -257,6 +257,37 @@ export async function resetPassword(data: any) {
   }
 }
 
+export async function deleteAccount() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
+
+  try {
+    await getXsrfToken();
+    const response = await authApi.delete('/profile', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    if (response.status === 200) {
+      cookieStore.delete("token");
+      cookieStore.delete("session");
+      cookieStore.delete("XSRF-TOKEN");
+      return { success: true };
+    }
+
+    return {
+      success: false,
+      message: response.data.message || "Failed to delete account"
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.response?.data?.message || "An error occurred during account deletion"
+    };
+  }
+}
+
 export async function logout() {
   const cookieStore = await cookies()
   // Destroy the session
