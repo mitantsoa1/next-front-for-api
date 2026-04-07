@@ -225,6 +225,22 @@ export async function forgotPassword(email: string, locale: string = 'en') {
   }
 }
 
+export async function resendVerification(email: string) {
+  try {
+    await getXsrfToken();
+    const response = await authApi.post('/verification/resend', { email });
+    return {
+      success: true,
+      message: response.data.message || "Verification link sent"
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.response?.data?.message || "Failed to resend verification link"
+    };
+  }
+}
+
 export async function resetPassword(data: any) {
   try {
     await getXsrfToken();

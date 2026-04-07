@@ -8,7 +8,11 @@ export async function encrypt(payload: any) {
         .setProtectedHeader({ alg: "HS256" })
         .setIssuedAt();
 
-    if (payload.expires) {
+    if (payload.expires instanceof Date) {
+        jwt.setExpirationTime(Math.floor(payload.expires.getTime() / 1000));
+    } else if (typeof payload.expires === 'string' && !isNaN(Date.parse(payload.expires)) && !/^\d+[smhdwy]?$/.test(payload.expires)) {
+        jwt.setExpirationTime(Math.floor(new Date(payload.expires).getTime() / 1000));
+    } else if (payload.expires) {
         jwt.setExpirationTime(payload.expires);
     } else {
         jwt.setExpirationTime("1h");

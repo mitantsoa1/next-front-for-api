@@ -16,9 +16,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useLocale, useTranslations } from "next-intl"
-import { login } from "@/lib/auth"
-import { useState } from "react"
-import { Loader2, Eye, EyeOff, CircleAlert, CircleCheck } from "lucide-react"
+import { login, resendVerification } from "@/lib/auth"
+import { useState, useEffect } from "react"
+import { Loader2, Eye, EyeOff, CircleAlert, CircleCheck, Mail } from "lucide-react"
 import Image from "next/image"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group"
 import { motion } from "framer-motion"
@@ -51,10 +51,19 @@ export function LoginForm({
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isBlocked, setIsBlocked] = useState(false);
+  const [needsVerification, setNeedsVerification] = useState(false);
+  const [lastAttemptedEmail, setLastAttemptedEmail] = useState("");
+  const [isResending, setIsResending] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  useEffect(() => {
+    if (searchParams.get('verified') === '1') {
+      setSuccess(locale === 'fr' ? "E-mail vérifié avec succès ! Vous pouvez maintenant vous connecter." : "Email verified successfully! You can now log in.");
+    }
+  }, [searchParams, locale]);
 
   const handleGoogleLogin = async () => {
     setIsGoogleLoading(true);
@@ -82,6 +91,7 @@ export function LoginForm({
     setError(null);
     setSuccess(null);
     setIsBlocked(false);
+    setNeedsVerification(false);
 
     const formData = new FormData();
     formData.append("email", data.email);
@@ -113,6 +123,10 @@ export function LoginForm({
             duration: 5000,
           });
           setError(result.message);
+        } else if (resData?.needs_verification) {
+          setNeedsVerification(true);
+          setLastAttemptedEmail(data.email);
+          setError(result.message);
         } else {
           setError(result.message || t("login_failed"));
         }
@@ -131,6 +145,22 @@ export function LoginForm({
 
   const handleSignUpClick = () => {
     startTransition('/signup');
+  };
+
+  const handleResendVerification = async () => {
+    if (!lastAttemptedEmail) return;
+
+    setIsResending(true);
+    const result = await resendVerification(lastAttemptedEmail);
+    setIsResending(false);
+
+    if (result.success) {
+      setSuccess(result.message);
+      setNeedsVerification(false);
+      setError(null);
+    } else {
+      setError(result.message);
+    }
   };
 
   return (
@@ -181,6 +211,29 @@ export function LoginForm({
                     <Link href="/forgot-password">
                       {locale === 'fr' ? "Réinitialiser mon mot de passe" : "Reset my password"}
                     </Link>
+                  </Button>
+                </div>
+              )}
+              {needsVerification && (
+                <div className="mt-3">
+                  <Button
+                    type="button"
+                    onClick={handleResendVerification}
+                    disabled={isResending}
+                    variant="outline"
+                    className="w-full text-xs h-9 rounded-lg bg-white dark:bg-slate-900 hover:bg-slate-50 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-400 font-bold"
+                  >
+                    {isResending ? (
+                      <>
+                        <Loader2 className="mr-2 h-3 w-3 animate-spin" />
+                        {locale === 'fr' ? "Envoi..." : "Sending..."}
+                      </>
+                    ) : (
+                      <div className="flex items-center gap-2">
+                        <Mail className="h-3 w-3" />
+                        {locale === 'fr' ? "Renvoyer le lien de confirmation" : "Resend confirmation link"}
+                      </div>
+                    )}
                   </Button>
                 </div>
               )}

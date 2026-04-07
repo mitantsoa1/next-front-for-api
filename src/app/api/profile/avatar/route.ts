@@ -31,7 +31,8 @@ export async function POST(request: NextRequest) {
             const expires = new Date(Date.now() + 1000 * 60 * 60);
             const newSession = await encrypt({
                 ...session,
-                user: { ...session.user, avatar: data.avatar }
+                user: { ...session.user, avatar: data.avatar },
+                expires
             });
 
             const cookieStore = await cookies();
