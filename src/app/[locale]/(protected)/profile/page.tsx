@@ -45,7 +45,7 @@ const FuturisticCard = ({
     transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
     className={`relative group ${className}`}
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[28px]" />
+    <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[28px]" />
     <div className="relative bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[28px] p-7 overflow-hidden shadow-sm dark:shadow-none">
       <div className="flex items-center gap-3 mb-7">
         <div className="p-2.5 bg-primary/10 rounded-xl">
@@ -95,11 +95,10 @@ const InputGroup = ({
         onChange={onChange}
         disabled={disabled}
         placeholder={placeholder}
-        className={`w-full bg-gray-50 dark:bg-gray-800 border ${
-          error
-            ? "border-red-400 dark:border-red-500 focus:ring-red-400/20"
-            : "border-gray-200 dark:border-gray-700 focus:ring-primary/20 focus:border-primary/50"
-        } rounded-2xl py-3.5 pl-11 pr-${rightSlot ? "12" : "4"} text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed`}
+        className={`w-full bg-gray-50 dark:bg-gray-800 border ${error
+          ? "border-red-400 dark:border-red-500 focus:ring-red-400/20"
+          : "border-gray-200 dark:border-gray-700 focus:ring-primary/20 focus:border-primary/50"
+          } rounded-2xl py-3.5 pl-11 pr-${rightSlot ? "12" : "4"} text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed`}
       />
       {rightSlot && (
         <div className="absolute right-4 top-1/2 -translate-y-1/2">{rightSlot}</div>
@@ -107,7 +106,7 @@ const InputGroup = ({
     </div>
     {error && (
       <p className="text-xs text-red-500 pl-1 flex items-center gap-1">
-        <CircleAlert className="w-3 h-3 flex-shrink-0" />
+        <CircleAlert className="w-3 h-3 shrink-0" />
         {error}
       </p>
     )}
@@ -344,7 +343,7 @@ export default function ProfilePage() {
           className="relative w-36 h-36 mb-8"
         >
           <div className="absolute inset-0 bg-primary/20 rounded-[40px] animate-pulse blur-2xl" />
-          <div 
+          <div
             className="relative w-full h-full bg-gray-100 dark:bg-gray-800 rounded-[40px] border-2 border-white/10 flex items-center justify-center overflow-hidden shadow-2xl cursor-pointer group"
             onClick={() => fileInputRef.current?.click()}
           >
@@ -359,12 +358,12 @@ export default function ProfilePage() {
               <Camera className="w-6 h-6 text-white" />
             </div>
           </div>
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            onChange={handleAvatarChange} 
-            accept="image/jpeg, image/png, image/webp, image/gif" 
-            className="hidden" 
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleAvatarChange}
+            accept="image/jpeg, image/png, image/webp, image/gif"
+            className="hidden"
           />
 
           {/* Role badge */}
@@ -531,20 +530,19 @@ export default function ProfilePage() {
                       const hasUpper = /[A-Z]/.test(passwordForm.password);
                       const strength =
                         len >= 12 && hasSpecial && hasUpper ? 4
-                        : len >= 10 && (hasSpecial || hasUpper) ? 3
-                        : len >= 8 ? 2
-                        : 1;
+                          : len >= 10 && (hasSpecial || hasUpper) ? 3
+                            : len >= 8 ? 2
+                              : 1;
                       return (
                         <div
                           key={lvl}
-                          className={`h-1 flex-1 rounded-full transition-all duration-500 ${
-                            lvl <= strength
-                              ? strength === 1 ? "bg-red-400"
+                          className={`h-1 flex-1 rounded-full transition-all duration-500 ${lvl <= strength
+                            ? strength === 1 ? "bg-red-400"
                               : strength === 2 ? "bg-amber-400"
-                              : strength === 3 ? "bg-blue-400"
-                              : "bg-emerald-400"
-                              : "bg-gray-200 dark:bg-gray-700"
-                          }`}
+                                : strength === 3 ? "bg-blue-400"
+                                  : "bg-emerald-400"
+                            : "bg-gray-200 dark:bg-gray-700"
+                            }`}
                         />
                       );
                     })}
@@ -553,10 +551,10 @@ export default function ProfilePage() {
                     {passwordForm.password.length < 8
                       ? "Trop court"
                       : /[!@#$%^&*]/.test(passwordForm.password) && /[A-Z]/.test(passwordForm.password) && passwordForm.password.length >= 12
-                      ? "Très sécurisé"
-                      : passwordForm.password.length >= 10
-                      ? "Robuste"
-                      : "Acceptable — ajoutez des majuscules et caractères spéciaux"}
+                        ? "Très sécurisé"
+                        : passwordForm.password.length >= 10
+                          ? "Robuste"
+                          : "Acceptable — ajoutez des majuscules et caractères spéciaux"}
                   </p>
                 </div>
               )}
@@ -597,8 +595,8 @@ export default function ProfilePage() {
                   profile.role === "superadmin"
                     ? "text-purple-500"
                     : profile.role === "admin"
-                    ? "text-amber-500"
-                    : "text-emerald-500"
+                      ? "text-amber-500"
+                      : "text-emerald-500"
                 }
               />
               <StatRow
@@ -627,9 +625,9 @@ export default function ProfilePage() {
               {/* Email verified */}
               <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-2xl">
                 {profile.email_verified_at ? (
-                  <BadgeCheck className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                  <BadgeCheck className="w-5 h-5 text-emerald-500 shrink-0" />
                 ) : (
-                  <CircleAlert className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                  <CircleAlert className="w-5 h-5 text-amber-500 shrink-0" />
                 )}
                 <div>
                   <p className="text-xs font-bold text-gray-700 dark:text-gray-200">
@@ -641,15 +639,15 @@ export default function ProfilePage() {
                     {profile.email_verified_at && isMounted
                       ? `Vérifié le ${formatDate(profile.email_verified_at)}`
                       : !profile.email_verified_at
-                      ? "Vérifiez votre boîte de réception"
-                      : "—"}
+                        ? "Vérifiez votre boîte de réception"
+                        : "—"}
                   </p>
                 </div>
               </div>
 
               {/* Account active */}
               <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-2xl">
-                <UserCheck className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                <UserCheck className="w-5 h-5 text-emerald-500 shrink-0" />
                 <div>
                   <p className="text-xs font-bold text-gray-700 dark:text-gray-200">
                     Compte actif
